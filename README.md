@@ -1,6 +1,6 @@
 # Sumobot Jr.
 
-Sumobot Jr. is an open source sumobot design made for [Nodebots Day](http://nodebotsday.com). Most existing sumo kits cost between $99 and $160. Since we're trying to keep our event costs, I decided to try to design a bot that could be put together for around $50 including the cost of the Arduino. The name and design are inspired by the simplicity and ziptied wood beauty of the [Prinrbot Jr](http://printrbot.com/).
+Sumobot Jr. is an open source sumobot design made for [Nodebots Day](http://nodebotsday.com). Most existing sumo kits cost between $99 and $160. Since we're trying to keep our event costs down, I decided to try to design a bot that could be put together for around $50 including the cost of the Arduino. The name and design are inspired by the simplicity and ziptied wood beauty of the [Prinrbot Jr](http://printrbot.com/).
 
 <img src="https://github.com/makenai/sumobot-jr/raw/master/assets/sumobotjr.png">
 
@@ -14,7 +14,7 @@ There is also a directory called 3d_print that contains an STL file for a ball c
 
 Neither do I! The best way to get some help creating the parts is to look up your local [Hackerspace](http://hackerspaces.org) and connect with them. I belong to a fantastic hackerspace in Las Vegas called [SYN Shop](http://synshop.org)!
 
-<img src="https://github.com/makenai/sumobot-jr/raw/master/assets/synshop.png">
+[<img src="https://github.com/makenai/sumobot-jr/raw/master/assets/synshop.png">](http://synshop.org)
 
 If you don't have a hackerspace nearby, you can also use a mail order service like [Ponoko](http://ponoko.com) that does both 3D printing and laser cutting.
 
