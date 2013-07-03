@@ -1,8 +1,8 @@
-<img src="https://github.com/makenai/sumobot-jr/raw/master/assets/sumobotjr.png">
-
 # Sumobot Jr.
 
 Sumobot Jr. is an open source sumobot design made for [Nodebots Day](http://nodebotsday.com). Most existing sumo kits cost between $99 and $160. Since we're trying to keep our event costs, I decided to try to design a bot that could be put together for around $50 including the cost of the Arduino. The name and design are inspired by the simplicity and ziptied wood beauty of the [Prinrbot Jr](http://printrbot.com/).
+
+<img src="https://github.com/makenai/sumobot-jr/raw/master/assets/sumobotjr.png">
 
 ## How?
 
@@ -33,9 +33,33 @@ That's about it! connect the red and black leads on the servos togehter, then co
 
 Stay tuned for detailed assembly instructions.
 
+## License
+
+[Creative Commons - Attribution - ShareAlike 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+
+You are free to:
+
++ to Share—to copy, distribute and transmit the work, and
++ to Remix—to adapt the work
++ Under the following conditions:
+    + Attribution—You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work.)
+    + Share Alike—If you alter, transform, or build upon this work, you may distribute the resulting work only under the same, similar or a compatible license.
+
+With the understanding that:
+
++ Waiver—Any of the above conditions can be waived if you get permission from the copyright holder.
++ Other Rights—In no way are any of the following rights affected by the license:
+    + your fair dealing or fair use rights;
+    + the author's moral rights; and
+    + rights other persons may have either in the work itself or in how the work is used, such as publicity or privacy rights.
+
+## Credits
+
 Made by
 
 <img src="https://github.com/makenai/sumobot-jr/raw/master/assets/amalgamation.png">
+
+Design by [@makenai](http://twitter.com/makenai) with feedback and ideas from [@suziam](http://twitter.com/suziam) aka Amalgamation of Cats.
 
 
 
