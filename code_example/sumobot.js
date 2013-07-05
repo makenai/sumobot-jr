@@ -5,10 +5,6 @@
 var five = require("johnny-five");
 var keypress = require('keypress');
 
-process.stdin.resume(); 
-process.stdin.setEncoding('utf8'); 
-process.stdin.setRawMode(true); 
-
 keypress(process.stdin);
 
 var board = new five.Board();
@@ -20,6 +16,11 @@ board.on("ready", function() {
 
   var left_wheel  = new five.Servo({ pin:  9, type: 'continuous' }).stop();
   var right_wheel = new five.Servo({ pin: 10, type: 'continuous'  }).stop();
+
+
+  process.stdin.resume(); 
+  process.stdin.setEncoding('utf8'); 
+  process.stdin.setRawMode(true); 
 
   process.stdin.on('keypress', function (ch, key) {
     
