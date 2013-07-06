@@ -6,6 +6,10 @@ Sumobot Jr. is an open source sumobot design made for [Nodebots Day](http://node
 
 ## How?
 
+If you want to jump right into it, you can watch this instructional video:
+
+[http://www.youtube.com/watch?v=0Q3hrKUwxDM](Sumobot Jr Assembly video for Nodebots Day 7/27)
+
 The main part of the design is a cutting sheet in EPS file format that is designed to be used with a laser cutter. You can find it in the cutting_plans directory. If you don't have a laser cutter, you can use a CNC, tape your printout to balsa wood and go at it with an x-acto knife, or send it to a laser cutting service like [Ponoko](https://www.ponoko.com/) and get the sheet done for about $10.
 
 There is also a directory called 3d_print that contains an STL file for a ball caster designed by [sliptonic](http://www.thingiverse.com/thing:13782) - the STL is set up for a 16mm ball bearing, but you can make one for other sizes with the included OpenSCAD file.
@@ -30,8 +34,6 @@ If you don't have a hackerspace nearby, you can also use a mail order service li
 + 16mm ball bearing - ?
 
 That's about it! Connect the red and black leads on the servos together, then connect them to the + and - terminals on the battery holder respectively. Then connect the black leads and - terminal to the ground of the Arduino. Finally, the white leads of each motor go to pins 9 and 10 (or whatever you lke) on the Arduino - you're done!
-
-Stay tuned for detailed assembly instructions.
 
 ## License
 
