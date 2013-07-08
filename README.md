@@ -8,7 +8,7 @@ Sumobot Jr. is an open source sumobot design made for [Nodebots Day](http://node
 
 If you want to jump right into it, you can watch this instructional video:
 
-[http://www.youtube.com/watch?v=0Q3hrKUwxDM](Sumobot Jr Assembly video for Nodebots Day 7/27)
+[Sumobot Jr Assembly video for Nodebots Day 7/27](http://www.youtube.com/watch?v=0Q3hrKUwxDM)
 
 The main part of the design is a cutting sheet in EPS file format that is designed to be used with a laser cutter. You can find it in the cutting_plans directory. If you don't have a laser cutter, you can use a CNC, tape your printout to balsa wood and go at it with an x-acto knife, or send it to a laser cutting service like [Ponoko](https://www.ponoko.com/) and get the sheet done for about $10.
 
