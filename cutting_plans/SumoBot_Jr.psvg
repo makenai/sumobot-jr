@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="SumoBot_Jr" x="0px" y="0px" width="612px" height="792px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+
+
+<g id="wheels" label="wheels" xmlns="http://www.inkscape.org/namespaces/inkscape" transform="translate(0 0)"><!-- Left Wheel -->
+<circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="340.638" cy="461.016" r="103.323"/>
+
+<circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="340.638" cy="461.017" r="4"/>
+
+<!-- Right Wheel -->
+
+<circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="494.506" cy="622.08" r="103.323"/>
+
+<circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="494.506" cy="622.081" r="4"/>
+
+</g><g id="shovel" label="shovel" xmlns="http://www.inkscape.org/namespaces/inkscape"><!-- Shovel -->
+
+<rect x="25.095" y="590.58" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="311.811" height="138.914"/>
+<!-- Left Shovel Tab -->
+
+<rect x="72.302" y="643.242" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.59"/>
+
+<!-- Right Shovel Tab -->
+
+<rect x="275.95" y="643.242" fill="none" stroke="#0000FF" stroke-width="0.01" stroke-miterlimit="10" width="13.748" height="33.59"/>
+
+</g><g id="bottom" label="bottom" xmlns="http://www.inkscape.org/namespaces/inkscape" transform="translate(-6.47 -8.37)"><!-- Bottom -->
+
+<polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" points="7.201,330.703 7.201,296.688    24.209,296.688 24.209,276.688 214.287,276.688 214.287,296.688 231.295,296.688 231.295,330.703 214.287,330.703 214.287,470.672    231.295,470.672 231.295,504.688 214.287,504.688 214.287,577.502 24.209,577.502 24.209,504.688 7.201,504.688 7.201,470.672    24.209,470.672 24.209,330.703  "/>
+
+<!-- Caster screw holes -->
+
+<circle stroke="#0000FF" fill="none" stroke-width="1" stroke-miterlimit="10" cx="151.847" cy="540.032" r="2.834"/>
+
+<circle stroke="#0000FF" fill="none" stroke-width="1" stroke-miterlimit="10" cx="86.65" cy="540.032" r="2.834"/>
+
+<!-- Motor Ziptie holes -->
+
+<rect x="36.54" y="446.843" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="14.173" height="14.174"/>
+
+<rect x="36.54" y="318.007" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="14.173" height="14.174"/>
+
+<rect x="189.571" y="446.756" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="14.173" height="14.174"/>
+
+<rect x="189.571" y="318.007" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="14.173" height="14.174"/>
+
+</g><g id="top" label="top" xmlns="http://www.inkscape.org/namespaces/inkscape" transform="translate(-8.72 -13.0)">
+<polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" points="8.449,72.009 8.449,37.993    25.457,37.993 25.457,17.993 215.535,17.993 215.535,37.993 232.543,37.993 232.543,72.009 215.535,72.009 215.535,211.978    232.543,211.978 232.543,245.993 215.535,245.993 215.535,265.993 25.457,265.993 25.457,245.993 8.449,245.993 8.449,211.978    25.457,211.978 25.457,72.009  "/>
+
+<circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="188.406" cy="224.889" r="2.835"/>
+
+<circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="144.806" cy="77.33" r="2.835"/>
+
+<circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="64.744" cy="77.165" r="2.835"/>
+
+<circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="50.713" cy="227.889" r="2.835"/>
+
+</g><g id="side a" label="side a" xmlns="http://www.inkscape.org/namespaces/inkscape"><!-- Tab Holes -->
+
+<rect x="442.629" y="117.212" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
+
+<rect x="442.629" y="291.197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.59"/>
+
+<rect x="564.623" y="117.212" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
+
+<rect x="564.622" y="291.197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.59"/>
+
+<!-- Side -->
+
+<polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" points="598,345 422.476,345 422.476,97.027    520.343,52.528 513.194,37.333 543.976,22.854 551.132,38.067 598,16.054  "/>
+
+<!-- Motor Hole -->
+
+<rect x="504.85" y="169.071" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="58.111" height="119.055"/>
+
+</g><desc>A laser cuttable robotics platform.</desc><g transform="translate(0 0)" id="side b" label="side b" xmlns="http://www.inkscape.org/namespaces/inkscape"><!-- Tab Holes -->
+
+<rect x="379.309" y="117.212" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
+
+<rect x="379.309" y="291.197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
+
+<rect x="257.314" y="117.212" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
+
+<rect x="257.315" y="291.197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
+
+<!-- Side -->
+
+<polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" points="239.685,345 415.21,345 415.21,97.027   317.343,52.528 324.491,37.333 293.71,22.854 286.554,38.067 239.685,16.054 "/>
+
+<!-- Motor Hole -->
+<rect x="272.85" y="169.322" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="58.111" height="119.055"/>
+
+</g></svg>
