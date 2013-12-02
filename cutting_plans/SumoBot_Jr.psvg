@@ -1,92 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="SumoBot_Jr" x="0px" y="0px" width="612px" height="792px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="SumoBot_Jr" x="0px" y="0px" width="210mm" height="297mm" viewBox="0 0 210 297" enable-background="new 0 0 210 297" xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace">
 
+<desc>A laser cuttable robotics platform.</desc>
+<defs>
+  <ref param="material_thickness" default="5"/>
+  <ref param="servo_width" default="44.1"/>
+  <ref param="servo_height" default="20"/>
+  <ref param="servo_length" default="40.5"/>
+  <ref param="battery_case_height" default="15"/>
+  <ref param="tab_length" default="15"/>
+</defs>
 
-<g id="wheels" label="wheels" xmlns="http://www.inkscape.org/namespaces/inkscape" transform="translate(0 0)"><!-- Left Wheel -->
-<circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="340.638" cy="461.016" r="103.323"/>
+<g id="wheels" label="wheels" xmlns="http://www.inkscape.org/namespaces/inkscape" transform="translate(0 0)">
 
-<circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="340.638" cy="461.017" r="4"/>
+  <!-- Left Wheel -->
+  <!-- "1mm" would be "3.543307px" (3.543307 user units) _0 / 3.543307 -->
 
-<!-- Right Wheel -->
+  <circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="96" cy="130" r="29"/>
+  <circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="96" cy="130" r="1"/>
 
-<circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="494.506" cy="622.08" r="103.323"/>
+  <!-- Right Wheel -->
+  <circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="140" cy="175" r="29"/>
+  <circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="140" cy="175" r="1"/>
 
-<circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="494.506" cy="622.081" r="4"/>
+</g>
 
-</g><g id="shovel" label="shovel" xmlns="http://www.inkscape.org/namespaces/inkscape"><!-- Shovel -->
+<g id="shovel" label="shovel" xmlns="http://www.inkscape.org/namespaces/inkscape">
+  
+  <!-- Shovel -->
+  <rect x="7" y="165" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="88" height="39"/>
 
-<rect x="25.095" y="590.58" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="311.811" height="138.914"/>
-<!-- Left Shovel Tab -->
+  <!-- Left Shovel Tab -->
+  <rect x="20.4" y="181.5" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.8" height="9.5"/>
 
-<rect x="72.302" y="643.242" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.59"/>
+  <!-- Right Shovel Tab -->
+  <rect x="77.8" y="181.5" fill="none" stroke="#0000FF" stroke-width="0.01" stroke-miterlimit="10" width="3.8" height="9.5"/>
 
-<!-- Right Shovel Tab -->
+</g>
 
-<rect x="275.95" y="643.242" fill="none" stroke="#0000FF" stroke-width="0.01" stroke-miterlimit="10" width="13.748" height="33.59"/>
+<g id="bottom" label="bottom" xmlns="http://www.inkscape.org/namespaces/inkscape">
 
-</g><g id="bottom" label="bottom" xmlns="http://www.inkscape.org/namespaces/inkscape" transform="translate(-6.47 -8.37)"><!-- Bottom -->
+  <!-- Bottom -->
+  <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
+  points="2.0322822719, 93.331737837 
+  2.0322822719,  83.7319487134
+  6.83231794479, 83.7319487134 
+  6.83231794479, 78.087504131 
+  60.4765548116, 78.087504131 
+  60.4765548116, 83.7319487134 
+  65.2765904845, 83.7319487134 
+  65.2765904845, 93.331737837 
+  60.4765548116, 93.331737837 
+  60.4765548116, 132.834101025
+  65.2765904845, 132.834101025 
+  65.2765904845, 142.434172371 
+  60.4765548116, 142.434172371 
+  60.4765548116, 162.983901762
+  6.83231794479, 162.983901762
+  6.83231794479, 142.434172371 
+  2.0322822719,  142.434172371 
+  2.0322822719,  132.834101025   
+  6.83231794479, 132.834101025 
+  6.83231794479, 93.331737837
+  2.0322822719, 93.331737837"/>
 
-<polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" points="7.201,330.703 7.201,296.688    24.209,296.688 24.209,276.688 214.287,276.688 214.287,296.688 231.295,296.688 231.295,330.703 214.287,330.703 214.287,470.672    231.295,470.672 231.295,504.688 214.287,504.688 214.287,577.502 24.209,577.502 24.209,504.688 7.201,504.688 7.201,470.672    24.209,470.672 24.209,330.703  "/>
+  <!-- Caster screw holes -->
+  <circle stroke="#0000FF" fill="none" stroke-width="1" stroke-miterlimit="10" cx="43" cy="152" r="1"/>
+  <circle stroke="#0000FF" fill="none" stroke-width="1" stroke-miterlimit="10" cx="24.5" cy="152" r="1"/>
 
-<!-- Caster screw holes -->
+  <!-- Motor Ziptie holes -->
+  <rect x="10" y="126" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
+  <rect x="10" y="90" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
+  <rect x="54" y="126" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
+  <rect x="54" y="90" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
 
-<circle stroke="#0000FF" fill="none" stroke-width="1" stroke-miterlimit="10" cx="151.847" cy="540.032" r="2.834"/>
+</g>
 
-<circle stroke="#0000FF" fill="none" stroke-width="1" stroke-miterlimit="10" cx="86.65" cy="540.032" r="2.834"/>
+<g id="top" label="top" xmlns="http://www.inkscape.org/namespaces/inkscape">
 
-<!-- Motor Ziptie holes -->
+  <!-- Top -->
+  <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
+  points="2.38449561384, 20.3225404968 
+  2.38449561384, 10.722469151    
+  7.18453128673, 10.722469151 
+  7.18453128673, 5.07802456857 
+  60.8287681536, 5.07802456857 
+  60.8287681536, 10.722469151 
+  65.6288038265, 10.722469151 
+  65.6288038265, 20.3225404968
+  60.8287681536, 20.3225404968 
+  60.8287681536, 59.8249036846    
+  65.6288038265, 59.8249036846 
+  65.6288038265, 69.4246928082 
+  60.8287681536, 69.4246928082 
+  60.8287681536, 75.0691373906 
+  7.18453128673, 75.0691373906 
+  7.18453128673, 69.4246928082
+  2.38449561384, 69.4246928082 
+  2.38449561384, 59.8249036846    
+  7.18453128673, 59.8249036846 
+  7.18453128673, 20.3225404968
+  2.38449561384, 20.3225404968"/>
 
-<rect x="36.54" y="446.843" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="14.173" height="14.174"/>
+  <!-- Arduino Uno Mount Holes -->
+  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="53.1723612998" cy="63.4686748848" r="1"/>
+  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="40.8674721101" cy="21.8242449779" r="1"/>
+  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="18.2721960022" cy="21.7776783101" r="1"/>
+  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="14.3123359054" cy="64.3153415722" r="1"/>
 
-<rect x="36.54" y="318.007" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="14.173" height="14.174"/>
+</g>
 
-<rect x="189.571" y="446.756" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="14.173" height="14.174"/>
+<g id="side a" label="side a" transform="translate(120,5)" xmlns="http://www.inkscape.org/namespaces/inkscape">
 
-<rect x="189.571" y="318.007" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="14.173" height="14.174"/>
+  <!-- Tab Holes -->
+  
+<!--
+  <rect x="35.2777786401" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="1.09517906589" height="9.4801268984"/>
+  <rect x="35.2777786401" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.47984467617"/>
+  <rect x="159.349161673" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
+  <rect x="159.348879451" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.47984467617"/>
+-->
 
-</g><g id="top" label="top" xmlns="http://www.inkscape.org/namespaces/inkscape" transform="translate(-8.72 -13.0)">
-<polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" points="8.449,72.009 8.449,37.993    25.457,37.993 25.457,17.993 215.535,17.993 215.535,37.993 232.543,37.993 232.543,72.009 215.535,72.009 215.535,211.978    232.543,211.978 232.543,245.993 215.535,245.993 215.535,265.993 25.457,265.993 25.457,245.993 8.449,245.993 8.449,211.978    25.457,211.978 25.457,72.009  "/>
+  <!-- Side -->
+  <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
+  points="168, 97.3666690467 
+  119.23211847,  97.3666690467 
+  119.23211847,  27.3831762249    
+  146.852361368, 14.8245692513 
+  144.834754652, 10.5362024798
+  153.522119308, 6.44990682433 
+  155.54170158,  10.7433535959 
+  168.768893014, 4.53079566631
+  168.768893014, 97.3666690467"/>
 
-<circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="188.406" cy="224.889" r="2.835"/>
+  <!-- Motor Hole -->
+  <rect x="0" y="0" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
 
-<circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="144.806" cy="77.33" r="2.835"/>
+</g>
 
-<circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="64.744" cy="77.165" r="2.835"/>
+<g id="side b" label="side b" xmlns="http://www.inkscape.org/namespaces/inkscape">
 
-<circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="50.713" cy="227.889" r="2.835"/>
+  <!-- Tab Holes -->
+  <rect x="107.049431506" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
+  <rect x="107.049431506" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
+  <rect x="72.619730664" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
+  <rect x="72.6200128863" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
 
-</g><g id="side a" label="side a" xmlns="http://www.inkscape.org/namespaces/inkscape"><!-- Tab Holes -->
+  <!-- Side -->
+  <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
+  points="67.6444349869, 97.3666690467 
+  117.181491753, 97.3666690467 
+  117.181491753, 27.3831762249   
+  89.5612488559, 14.8245692513 
+  91.5785733497, 10.5362024798 
+  82.8914909151, 6.44990682433 
+  80.8719086435, 10.7433535959 
+  67.6444349869, 4.53079566631
+  67.6444349869, 97.3666690467"/>
 
-<rect x="442.629" y="117.212" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
+  <!-- Motor Hole -->
+  <rect x="77.0043352157" y="47.7864322792" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
 
-<rect x="442.629" y="291.197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.59"/>
+</g>
 
-<rect x="564.623" y="117.212" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
-
-<rect x="564.622" y="291.197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.59"/>
-
-<!-- Side -->
-
-<polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" points="598,345 422.476,345 422.476,97.027    520.343,52.528 513.194,37.333 543.976,22.854 551.132,38.067 598,16.054  "/>
-
-<!-- Motor Hole -->
-
-<rect x="504.85" y="169.071" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="58.111" height="119.055"/>
-
-</g><desc>A laser cuttable robotics platform.</desc><g transform="translate(0 0)" id="side b" label="side b" xmlns="http://www.inkscape.org/namespaces/inkscape"><!-- Tab Holes -->
-
-<rect x="379.309" y="117.212" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
-
-<rect x="379.309" y="291.197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
-
-<rect x="257.314" y="117.212" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
-
-<rect x="257.315" y="291.197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="13.748" height="33.591"/>
-
-<!-- Side -->
-
-<polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" points="239.685,345 415.21,345 415.21,97.027   317.343,52.528 324.491,37.333 293.71,22.854 286.554,38.067 239.685,16.054 "/>
-
-<!-- Motor Hole -->
-<rect x="272.85" y="169.322" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="58.111" height="119.055"/>
-
-</g></svg>
+</svg>
