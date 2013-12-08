@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="SumoBot_Jr" x="0px" y="0px" width="210mm" height="297mm" viewBox="0 0 210 297" enable-background="new 0 0 210 297" xml:space="preserve" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+<svg id="SumoBot_Jr" x="0px" y="0px" width="210mm" height="297mm" viewBox="0 0 210 297">
 
 <desc>A laser cuttable robotics platform.</desc>
 <defs>
@@ -10,9 +8,18 @@
   <ref param="servo_length" default="40.5"/>
   <ref param="battery_case_height" default="15"/>
   <ref param="tab_length" default="15"/>
+  <ref param="shovel_angle" default="60"/>
+  <ref param="tab_edge_distance" default="5"/>
+  <ref param="sled_length" default="60"/>
+  <ref param="shovel_length" default="sled_length * Math.tan(shovel_angle)"/>
+
+  <ref param="side_height" default="((material_thickness + tab_edge_distance) * 2 ) + servo_height + battery_case_height"/>
+  <ref param="side_length" default="shovel_length + sled_length"/>
+
+
 </defs>
 
-<g id="wheels" label="wheels" xmlns="http://www.inkscape.org/namespaces/inkscape" transform="translate(0 0)">
+<g id="wheels" label="wheels" transform="translate(0 0)">
 
   <!-- Left Wheel -->
   <!-- "1mm" would be "3.543307px" (3.543307 user units) _0 / 3.543307 -->
@@ -26,7 +33,7 @@
 
 </g>
 
-<g id="shovel" label="shovel" xmlns="http://www.inkscape.org/namespaces/inkscape">
+<g id="shovel" label="shovel">
   
   <!-- Shovel -->
   <rect x="7" y="165" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="88" height="39"/>
@@ -39,7 +46,7 @@
 
 </g>
 
-<g id="bottom" label="bottom" xmlns="http://www.inkscape.org/namespaces/inkscape">
+<g id="bottom" label="bottom">
 
   <!-- Bottom -->
   <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
@@ -77,7 +84,7 @@
 
 </g>
 
-<g id="top" label="top" xmlns="http://www.inkscape.org/namespaces/inkscape">
+<g id="top" label="top">
 
   <!-- Top -->
   <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
@@ -111,35 +118,40 @@
 
 </g>
 
-<g id="side a" label="side a" transform="translate(120,5)" xmlns="http://www.inkscape.org/namespaces/inkscape">
+<g id="side a" label="side a" transform="translate(120,5)" >
 
   <!-- Tab Holes -->
   
-<!--
-  <rect x="35.2777786401" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="1.09517906589" height="9.4801268984"/>
-  <rect x="35.2777786401" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.47984467617"/>
-  <rect x="159.349161673" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
-  <rect x="159.348879451" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.47984467617"/>
--->
+
 
   <!-- Side -->
   <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
-  points="168, 97.3666690467 
-  119.23211847,  97.3666690467 
-  119.23211847,  27.3831762249    
-  146.852361368, 14.8245692513 
-  144.834754652, 10.5362024798
-  153.522119308, 6.44990682433 
-  155.54170158,  10.7433535959 
-  168.768893014, 4.53079566631
-  168.768893014, 97.3666690467"/>
+  points="{side_height}, {side_length}
+   0, {side_length} 
+   0, {shovel_length}    
+  27, 10 
+  25, 6
+  34, 2 
+  36, 6
+  49, 4
+  49, {side_length}
+"/>
+
+  <!-- <line x1="49" y1="93" x2="0" y2="93" stroke="#FF0000"/> -->
+  <!-- <line x1="0" y1="93" x2="0" y2="23" stroke="#FF0000"/> -->
+  <!-- <line x1="0" y1="23" x2="27" y2="10" stroke="#FF00FF"/> -->
+  <!-- <line x1="27" y1="10" x2="25" y2="6" stroke="#FF0000"/> -->
+  <!-- <line x1="25" y1="6" x2="34" y2="2" stroke="#FF0000"/> -->
+  <!-- <line x1="34" y1="2" x2="36" y2="6" stroke="#FF0000"/> -->
+  <!-- <line x1="36" y1="6" x2="49" y2="4" stroke="#FF0000"/> -->
+  <!-- <line x1="49" y1="4" x2="49" y2="93" stroke="#FF0000"/> -->
 
   <!-- Motor Hole -->
-  <rect x="0" y="0" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
+  <rect x="{side_height - servo_height - material_thickness - tab_edge_distance}" y="0" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
 
 </g>
 
-<g id="side b" label="side b" xmlns="http://www.inkscape.org/namespaces/inkscape">
+<g id="side b" label="side b">
 
   <!-- Tab Holes -->
   <rect x="107.049431506" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
