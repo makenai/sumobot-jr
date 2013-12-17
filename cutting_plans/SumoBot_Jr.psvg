@@ -10,13 +10,10 @@
   <ref param="tab_length" default="15"/>
   <ref param="shovel_angle" default="60"/>
   <ref param="tab_edge_distance" default="5"/>
-  <ref param="sled_length" default="60"/>
+  <ref param="sled_length" default="70"/>
   <ref param="shovel_length" default="sled_length * Math.tan(shovel_angle)"/>
-
   <ref param="side_height" default="((material_thickness + tab_edge_distance) * 2 ) + servo_height + battery_case_height"/>
   <ref param="side_length" default="shovel_length + sled_length"/>
-
-
 </defs>
 
 <g id="wheels" label="wheels" transform="translate(0 0)">
@@ -128,26 +125,16 @@
   <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
   points="{side_height}, {side_length}
    0, {side_length} 
-   0, {shovel_length}    
-  27, 10 
-  25, 6
-  34, 2 
-  36, 6
-  49, 4
-  49, {side_length}
+   0, {shovel_length}
+   
+   {side_height}, 0
+   {side_height}, {side_length}
 "/>
 
-  <!-- <line x1="49" y1="93" x2="0" y2="93" stroke="#FF0000"/> -->
-  <!-- <line x1="0" y1="93" x2="0" y2="23" stroke="#FF0000"/> -->
-  <!-- <line x1="0" y1="23" x2="27" y2="10" stroke="#FF00FF"/> -->
-  <!-- <line x1="27" y1="10" x2="25" y2="6" stroke="#FF0000"/> -->
-  <!-- <line x1="25" y1="6" x2="34" y2="2" stroke="#FF0000"/> -->
-  <!-- <line x1="34" y1="2" x2="36" y2="6" stroke="#FF0000"/> -->
-  <!-- <line x1="36" y1="6" x2="49" y2="4" stroke="#FF0000"/> -->
-  <!-- <line x1="49" y1="4" x2="49" y2="93" stroke="#FF0000"/> -->
-
   <!-- Motor Hole -->
-  <rect x="{side_height - servo_height - material_thickness - tab_edge_distance}" y="0" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
+  <rect x="{side_height - servo_height - material_thickness - tab_edge_distance}" 
+		y="{(side_length / 2) - (servo_height / 2)}" 
+		fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
 
 </g>
 
