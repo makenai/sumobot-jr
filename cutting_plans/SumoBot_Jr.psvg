@@ -8,12 +8,14 @@
   <ref param="servo_length" default="40.5"/>
   <ref param="battery_case_height" default="15"/>
   <ref param="tab_length" default="15"/>
-  <ref param="shovel_angle" default="60"/>
+  <ref param="shovel_angle" default="70"/>
+  <ref param="shovel_height" default="50"/>
+  <ref param="shovel_width" default="110"/>
   <ref param="tab_edge_distance" default="5"/>
   <ref param="sled_length" default="70"/>
-  <ref param="shovel_length" default="sled_length * Math.tan(shovel_angle)"/>
   <ref param="side_height" default="((material_thickness + tab_edge_distance) * 2 ) + servo_height + battery_case_height"/>
-  <ref param="side_length" default="shovel_length + sled_length"/>
+  <ref param="shovel_ramp_length" default="side_height / Math.tan(shovel_angle * (Math.PI / 180))"/>
+  <ref param="side_length" default="shovel_ramp_length + sled_length"/>
 </defs>
 
 <g id="wheels" label="wheels" transform="translate(0 0)">
@@ -21,32 +23,32 @@
   <!-- Left Wheel -->
   <!-- "1mm" would be "3.543307px" (3.543307 user units) _0 / 3.543307 -->
 
-  <circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="96" cy="130" r="29"/>
-  <circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="96" cy="130" r="1"/>
+  <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="96" cy="130" r="29"/>
+  <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="96" cy="130" r="1"/>
 
   <!-- Right Wheel -->
-  <circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="140" cy="175" r="29"/>
-  <circle fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="140" cy="175" r="1"/>
+  <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="140" cy="175" r="29"/>
+  <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="140" cy="175" r="1"/>
 
 </g>
 
 <g id="shovel" label="shovel">
   
   <!-- Shovel -->
-  <rect x="7" y="165" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="88" height="39"/>
+  <rect x="7" y="165" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="88" height="39"/>
 
   <!-- Left Shovel Tab -->
-  <rect x="20.4" y="181.5" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.8" height="9.5"/>
+  <rect x="20.4" y="181.5" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.8" height="9.5"/>
 
   <!-- Right Shovel Tab -->
-  <rect x="77.8" y="181.5" fill="none" stroke="#0000FF" stroke-width="0.01" stroke-miterlimit="10" width="3.8" height="9.5"/>
+  <rect x="77.8" y="181.5" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.8" height="9.5"/>
 
 </g>
 
 <g id="bottom" label="bottom">
 
   <!-- Bottom -->
-  <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
+  <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" 
   points="2.0322822719, 93.331737837 
   2.0322822719,  83.7319487134
   6.83231794479, 83.7319487134 
@@ -70,21 +72,21 @@
   2.0322822719, 93.331737837"/>
 
   <!-- Caster screw holes -->
-  <circle stroke="#0000FF" fill="none" stroke-width="1" stroke-miterlimit="10" cx="43" cy="152" r="1"/>
-  <circle stroke="#0000FF" fill="none" stroke-width="1" stroke-miterlimit="10" cx="24.5" cy="152" r="1"/>
+  <circle stroke="#0000FF" fill="none" stroke-width="0.5" stroke-miterlimit="10" cx="43" cy="152" r="1"/>
+  <circle stroke="#0000FF" fill="none" stroke-width="0.5" stroke-miterlimit="10" cx="24.5" cy="152" r="1"/>
 
   <!-- Motor Ziptie holes -->
-  <rect x="10" y="126" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
-  <rect x="10" y="90" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
-  <rect x="54" y="126" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
-  <rect x="54" y="90" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
+  <rect x="10" y="126" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="4" height="4"/>
+  <rect x="10" y="90" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="4" height="4"/>
+  <rect x="54" y="126" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="4" height="4"/>
+  <rect x="54" y="90" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="4" height="4"/>
 
 </g>
 
 <g id="top" label="top">
 
   <!-- Top -->
-  <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
+  <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" 
   points="2.38449561384, 20.3225404968 
   2.38449561384, 10.722469151    
   7.18453128673, 10.722469151 
@@ -108,10 +110,10 @@
   2.38449561384, 20.3225404968"/>
 
   <!-- Arduino Uno Mount Holes -->
-  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="53.1723612998" cy="63.4686748848" r="1"/>
-  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="40.8674721101" cy="21.8242449779" r="1"/>
-  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="18.2721960022" cy="21.7776783101" r="1"/>
-  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" cx="14.3123359054" cy="64.3153415722" r="1"/>
+  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="53.1723612998" cy="63.4686748848" r="1"/>
+  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="40.8674721101" cy="21.8242449779" r="1"/>
+  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="18.2721960022" cy="21.7776783101" r="1"/>
+  <circle fill="#FFFFFF" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="14.3123359054" cy="64.3153415722" r="1"/>
 
 </g>
 
@@ -122,11 +124,15 @@
 
 
   <!-- Side -->
-  <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
-  points="{side_height}, {side_length}
-   0, {side_length} 
-   0, {shovel_length}
-   
+  <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" 
+  points="
+   {side_height}, {side_length}
+   0,             {side_length} 
+   0,             {shovel_ramp_length}
+   {x = 5/Math.cos(shovel_angle*(Math.PI/180))}, {y = shovel_ramp_length - (5/Math.sin(shovel_angle*(Math.PI/180)))}
+   {x = x - material_thickness * Math.sin((90-shovel_angle)*(Math.PI/180))}, {y = y - material_thickness * Math.cos((90-shovel_angle)*(Math.PI/180))}
+   {x = x + tab_length * Math.sin(shovel_angle*(Math.PI/180))}, {y = y - tab_length * Math.cos(shovel_angle*(Math.PI/180))}
+   {x + material_thickness * Math.sin((90-shovel_angle)*(Math.PI/180))}, {y + material_thickness * Math.cos((90-shovel_angle)*(Math.PI/180))}
    {side_height}, 0
    {side_height}, {side_length}
 "/>
@@ -134,20 +140,20 @@
   <!-- Motor Hole -->
   <rect x="{side_height - servo_height - material_thickness - tab_edge_distance}" 
 		y="{(side_length / 2) - (servo_height / 2)}" 
-		fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
+		fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
 
 </g>
 
 <g id="side b" label="side b">
 
   <!-- Tab Holes -->
-  <rect x="107.049431506" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
-  <rect x="107.049431506" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
-  <rect x="72.619730664" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
-  <rect x="72.6200128863" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
+  <rect x="107.049431506" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
+  <rect x="107.049431506" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
+  <rect x="72.619730664" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
+  <rect x="72.6200128863" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
 
   <!-- Side -->
-  <polygon fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" 
+  <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" 
   points="67.6444349869, 97.3666690467 
   117.181491753, 97.3666690467 
   117.181491753, 27.3831762249   
@@ -159,7 +165,7 @@
   67.6444349869, 97.3666690467"/>
 
   <!-- Motor Hole -->
-  <rect x="77.0043352157" y="47.7864322792" fill="none" stroke="#0000FF" stroke-width="1" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
+  <rect x="77.0043352157" y="47.7864322792" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
 
 </g>
 
