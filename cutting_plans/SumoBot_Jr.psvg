@@ -7,18 +7,19 @@
   <ref param="servo_height" default="20"/>
   <ref param="servo_length" default="40.5"/>
   <ref param="battery_case_height" default="15"/>
-  <ref param="tab_length" default="15"/>
+  <ref param="tab_length" default="10"/>
   <ref param="shovel_angle" default="70"/>
-  <ref param="shovel_height" default="50"/>
-  <ref param="shovel_width" default="110"/>
+  <ref param="shovel_height" default="40"/>
+  <ref param="shovel_width" default="100"/>
   <ref param="tab_edge_distance" default="5"/>
   <ref param="sled_length" default="70"/>
+  <ref param="sled_width" default="60"/>
   <ref param="side_height" default="((material_thickness + tab_edge_distance) * 2 ) + servo_height + battery_case_height"/>
   <ref param="shovel_ramp_length" default="side_height / Math.tan(shovel_angle * (Math.PI / 180))"/>
   <ref param="side_length" default="shovel_ramp_length + sled_length"/>
 </defs>
 
-<g id="wheels" label="wheels" transform="translate(0 0)">
+<g id="wheels" label="wheels" transform="translate(0,0)">
 
   <!-- Left Wheel -->
   <!-- "1mm" would be "3.543307px" (3.543307 user units) _0 / 3.543307 -->
@@ -32,17 +33,15 @@
 
 </g>
 
-<g id="shovel" label="shovel">
+<g id="shovel" label="shovel" transform="translate(2,170)">
   
   <!-- Shovel -->
-  <rect x="7" y="165" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="88" height="39"/>
+  <rect x="0" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{shovel_width}" height="{shovel_height}"/>
 
-  <!-- Left Shovel Tab -->
-  <rect x="20.4" y="181.5" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.8" height="9.5"/>
+  <rect x="{((shovel_width-sled_width)/2)-material_thickness}" y="{shovel_height/2 - tab_length/2}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
 
-  <!-- Right Shovel Tab -->
-  <rect x="77.8" y="181.5" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.8" height="9.5"/>
-
+  <rect x="{((shovel_width-sled_width)/2)+sled_width}" y="{shovel_height/2 - tab_length/2}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+ 
 </g>
 
 <g id="bottom" label="bottom">
@@ -117,19 +116,24 @@
 
 </g>
 
-<g id="side a" label="side a" transform="translate(120,5)" >
+<g id="side" label="side" transform="translate(120,5)" >
 
   <!-- Tab Holes -->
+  <rect x="{tab_edge_distance}" y="{tab_edge_distance + shovel_ramp_length}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+
+  <rect x="{tab_edge_distance}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+
+  <rect x="{side_height - tab_edge_distance - material_thickness}" y="{tab_edge_distance + shovel_ramp_length}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+
+  <rect x="{side_height - tab_edge_distance - material_thickness}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
   
-
-
   <!-- Side -->
   <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" 
   points="
    {side_height}, {side_length}
    0,             {side_length} 
    0,             {shovel_ramp_length}
-   {x = 5/Math.cos(shovel_angle*(Math.PI/180))}, {y = shovel_ramp_length - (5/Math.sin(shovel_angle*(Math.PI/180)))}
+   {x = (tab_offset = Math.sqrt(Math.pow(55,2) + Math.pow(20,2))-(shovel_height/2)-(tab_length/2))*Math.sin(shovel_angle*(Math.PI/180))}, {y = shovel_ramp_length - tab_offset*Math.cos(shovel_angle*(Math.PI/180))}
    {x = x - material_thickness * Math.sin((90-shovel_angle)*(Math.PI/180))}, {y = y - material_thickness * Math.cos((90-shovel_angle)*(Math.PI/180))}
    {x = x + tab_length * Math.sin(shovel_angle*(Math.PI/180))}, {y = y - tab_length * Math.cos(shovel_angle*(Math.PI/180))}
    {x + material_thickness * Math.sin((90-shovel_angle)*(Math.PI/180))}, {y + material_thickness * Math.cos((90-shovel_angle)*(Math.PI/180))}
@@ -141,31 +145,6 @@
   <rect x="{side_height - servo_height - material_thickness - tab_edge_distance}" 
 		y="{(side_length / 2) - (servo_height / 2)}" 
 		fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
-
-</g>
-
-<g id="side b" label="side b">
-
-  <!-- Tab Holes -->
-  <rect x="107.049431506" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
-  <rect x="107.049431506" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
-  <rect x="72.619730664" y="33.0798319197" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
-  <rect x="72.6200128863" y="82.1822664533" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="3.87999120596" height="9.4801268984"/>
-
-  <!-- Side -->
-  <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" 
-  points="67.6444349869, 97.3666690467 
-  117.181491753, 97.3666690467 
-  117.181491753, 27.3831762249   
-  89.5612488559, 14.8245692513 
-  91.5785733497, 10.5362024798 
-  82.8914909151, 6.44990682433 
-  80.8719086435, 10.7433535959 
-  67.6444349869, 4.53079566631
-  67.6444349869, 97.3666690467"/>
-
-  <!-- Motor Hole -->
-  <rect x="77.0043352157" y="47.7864322792" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
 
 </g>
 
