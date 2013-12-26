@@ -1,4 +1,8 @@
-<svg id="SumoBot_Jr" x="0px" y="0px" width="210mm" height="297mm" viewBox="0 0 210 297">
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+  id="SumoBot_Jr" x="0px" y="0px" width="210mm" height="297mm" viewBox="0 0 210 297">
 
 <desc>A laser cuttable robotics platform.</desc>
 <defs>
@@ -23,7 +27,7 @@
   <ref param="caster_position" default="10"/>
 </defs>
 
- <rect x="0" y="0" fill="none" stroke="#FF00FF" stroke-width="0.5" stroke-miterlimit="10" width="210" height="297"/>
+<rect x="0" y="0" fill="none" stroke="#FF00FF" stroke-width="0.5" stroke-miterlimit="10" width="210" height="297"/>
 
 <g id="top" label="top" transform="translate(2,2)">
 
@@ -106,7 +110,7 @@
   <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{(wheel_radius*2) + 2}" cy="0" r="{screw_radius}"/>
 </g>
 
-<g id="side" label="side" transform="translate(120,2)">
+<g id="side" label="side" transform="translate({side_offset = (material_thickness * 2) + sled_width + 4},2)">
 
   <!-- Tab Holes -->
   <rect x="{tab_edge_distance}" y="{tab_edge_distance + shovel_ramp_length}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
@@ -124,5 +128,7 @@
   <rect x="{side_height - servo_height - material_thickness - tab_edge_distance}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
 
 </g>
+
+<use id="side_2" x="{side_height + 2}" y="0" xlink:href="#side" transform="scale(-1,1) translate({(side_height * -2) - 2 - ((material_thickness * 2) + sled_width + 4 + side_offset + side_height + 2)},0)" />
 
 </svg>
