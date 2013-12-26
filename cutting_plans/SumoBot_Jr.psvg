@@ -20,6 +20,7 @@
   <ref param="screw_radius" default="1.25"/>
   <ref param="caster_screw_spacing" default="25"/>
   <ref param="wheel_radius" default="30"/>
+  <ref param="caster_position" default="10"/>
 </defs>
 
  <rect x="0" y="0" fill="none" stroke="#FF00FF" stroke-width="0.5" stroke-miterlimit="10" width="210" height="297"/>
@@ -51,15 +52,13 @@
     {x+material_thickness}, {tab_edge_distance}
     {x+material_thickness}, {tab_edge_distance+tab_length}
     {x}, {tab_edge_distance+tab_length}
-    {x}, {y=side_length-tab_edge_distance-tab_length-(ramp_height_at_bottom_tab = Math.cos(shovel_angle * (Math.PI / 180)) * (tab_edge_distance + material_thickness))}
+    {x}, {y = side_length-tab_edge_distance-tab_length-(ramp_height_at_bottom_tab = Math.cos(shovel_angle * (Math.PI / 180)) * (tab_edge_distance + material_thickness))}
     {x+material_thickness}, {y}
     {x+material_thickness}, {y+tab_length}
     {x}, {y+tab_length}
-
     {x}, {side_length - ramp_height_at_bottom_tab}
     {material_thickness}, {side_length - ramp_height_at_bottom_tab}
     {material_thickness}, {y=side_length - ramp_height_at_bottom_tab - tab_edge_distance}
-
     0, {y}
     0, {y-tab_length}
     {material_thickness}, {y-tab_length}
@@ -71,13 +70,20 @@
   "/>
 
   <!-- Caster screw holes -->
-  <g id="caster_mounts" transform="translate({(sled_width/2) - (caster_screw_spacing/2) + material_thickness}, {sled_length})">
+  <g id="caster_mounts" transform="translate({(sled_width/2) - (caster_screw_spacing/2) + material_thickness}, {tab_edge_distance + caster_position})">
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{screw_radius}"/>
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{caster_screw_spacing}" cy="0" r="{screw_radius}"/>
   </g>
 
   <!-- Motor Ziptie holes -->
-  <rect x="0" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+  <rect x="{material_thickness + tab_edge_distance}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab - 2}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+
+  <rect x="{material_thickness + sled_width - tab_edge_distance - 5}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab - 2}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+
+  <rect x="{material_thickness + tab_edge_distance}" y="{side_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+
+  <rect x="{material_thickness + sled_width - tab_edge_distance - 5}" y="{side_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+
 </g>
 
 <g id="shovel" label="shovel" transform="translate(2,{sled_length + side_length + 6})">
