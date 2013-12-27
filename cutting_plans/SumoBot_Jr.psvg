@@ -162,7 +162,15 @@
     <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" points="    {side_height}, {side_length}    0,             {side_length}     0,             {shovel_ramp_length}    {x = (tab_offset = Math.sqrt(Math.pow(55,2) + Math.pow(20,2))-(shovel_height/2)-(tab_length/2))*Math.sin(shovel_angle*(Math.PI/180))}, {y = shovel_ramp_length - tab_offset*Math.cos(shovel_angle*(Math.PI/180))}    {x = x - material_thickness * Math.sin((90-shovel_angle)*(Math.PI/180))}, {y = y - material_thickness * Math.cos((90-shovel_angle)*(Math.PI/180))}    {x = x + tab_length * Math.sin(shovel_angle*(Math.PI/180))}, {y = y - tab_length * Math.cos(shovel_angle*(Math.PI/180))}    {x + material_thickness * Math.sin((90-shovel_angle)*(Math.PI/180))}, {y + material_thickness * Math.cos((90-shovel_angle)*(Math.PI/180))}    {side_height}, 0    {side_height}, {side_length} "/>
 
     <!-- Motor Hole -->
-    <rect x="{side_height - servo_height - material_thickness - tab_edge_distance}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
+    <rect x="{motor_x = side_height - servo_height - material_thickness - tab_edge_distance}" y="{motor_y = side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
+ 
+    <!-- Motor Screws -->
+    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + 5}" cy="{motor_y - 7.5 + screw_radius}" r="{screw_radius}"/>
+    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + 15}" cy="{motor_y - 7.5 + screw_radius}" r="{screw_radius}"/>
+
+    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + 5}" cy="{motor_y + servo_length + 7.5 - screw_radius}" r="{screw_radius}"/>
+    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + 15}" cy="{motor_y + servo_length + 7.5 - screw_radius}" r="{screw_radius}"/>
+
   </g>
 </g>
 
