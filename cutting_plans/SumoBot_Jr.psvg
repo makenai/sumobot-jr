@@ -7,9 +7,8 @@
 <desc>A laser cuttable robotics platform.</desc>
 <defs>
   <ref param="material_thickness" default="5"/>
-  <ref param="servo_width" default="44.1"/>
-  <ref param="servo_height" default="20"/>
-  <ref param="servo_length" default="40.5"/>
+  <ref param="servo_height" default="20.5"/>
+  <ref param="servo_length" default="41"/>
   <ref param="battery_case_height" default="15"/>
   <ref param="tab_length" default="10"/>
   <ref param="shovel_angle" default="70"/>
@@ -95,9 +94,9 @@
   </g>
 
   <!-- Motor Ziptie holes -->
-  <rect x="{material_thickness + tab_edge_distance}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab - 2}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+  <rect x="{material_thickness + tab_edge_distance}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab - 2.5}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
 
-  <rect x="{material_thickness + sled_width - tab_edge_distance - 5}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab - 2}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+  <rect x="{material_thickness + sled_width - tab_edge_distance - 5}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab - 2.5}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
 
   <rect x="{material_thickness + tab_edge_distance}" y="{side_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
 
@@ -136,10 +135,26 @@
   <g id="wheel_template">
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{wheel_radius}"/>
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{screw_radius}"/>
-    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="10" cy="0" r="{screw_radius}"/>
-    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="-10" cy="0" r="{screw_radius}"/>
-    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="15" r="{screw_radius}"/>
-    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="-15" r="{screw_radius}"/>
+    <g>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="10" r="{screw_radius}"/>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="-10" r="{screw_radius}"/>
+    </g>
+    <g>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="15" r="{screw_radius}"/>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="-15" r="{screw_radius}"/>
+    </g>
+    <g>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="5" r="{screw_radius}"/>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="-5" r="{screw_radius}"/>
+    </g>
+    <g>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="16" cy="0" r="{screw_radius}"/>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="-16" cy="0" r="{screw_radius}"/>
+    </g>
+    <g>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="8" cy="0" r="{screw_radius}"/>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="-8" cy="0" r="{screw_radius}"/>
+    </g>
   </g>
 </g>
 
@@ -165,11 +180,18 @@
     <rect x="{motor_x = side_height - servo_height - material_thickness - tab_edge_distance}" y="{motor_y = side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{servo_height}" height="{servo_length}"/>
  
     <!-- Motor Screws -->
-    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + 5}" cy="{motor_y - 7.5 + screw_radius}" r="{screw_radius}"/>
-    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + 15}" cy="{motor_y - 7.5 + screw_radius}" r="{screw_radius}"/>
+    <g transform="translate({(servo_height/2) - 5 + motor_x}, {motor_y - 5})">
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{screw_radius}"/>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="10" cy="0" r="{screw_radius}"/>
+    </g>
 
-    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + 5}" cy="{motor_y + servo_length + 7.5 - screw_radius}" r="{screw_radius}"/>
-    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + 15}" cy="{motor_y + servo_length + 7.5 - screw_radius}" r="{screw_radius}"/>
+    <g transform="translate({(servo_height/2) - 5 + motor_x}, {motor_y + 5 + servo_length})">
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{screw_radius}"/>
+      <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="10" cy="0" r="{screw_radius}"/>
+    </g>
+
+    <!-- Wire Holes -->
+    <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + (servo_height/2)}" cy="{motor_y + servo_length}" r="3.5"/>
 
   </g>
 </g>
