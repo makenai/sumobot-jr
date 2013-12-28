@@ -151,7 +151,7 @@
 
 </g>
 
-<g id="right_wheel" label="wheels" transform="translate({wheel_radius + 2},{sled_length + side_length + shovel_height + wheel_radius + 8})">
+<g id="right_wheel" label="wheels" transform="translate({shovel_width + wheel_radius + 4},{side_length + wheel_radius + 4})">
   <g id="wheel_template">
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{wheel_radius}"/>
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{screw_radius}"/>
@@ -178,7 +178,7 @@
   </g>
 </g>
 
-<g id="left_wheel" label="wheels" transform="translate({(wheel_radius * 3) + 4},{sled_length + side_length + shovel_height + wheel_radius + 8})">
+<g id="left_wheel" label="wheels" transform="translate({shovel_width + wheel_radius + 4}, {side_length + (wheel_radius*3) + 6})">
   <use xlink:href="#wheel_template"/>
 </g>
 
