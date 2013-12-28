@@ -12,7 +12,7 @@
   <ref param="battery_case_height" default="15"/>
   <ref param="tab_length" default="10"/>
   <ref param="wood_hug_factor" default="0.25"/>
-  <ref param="shovel_angle" default="75"/>
+  <ref param="shovel_angle" default="80"/>
   <ref param="shovel_height" default="45"/>
   <ref param="shovel_width" default="105"/>
   <ref param="tab_edge_distance" default="5"/>
@@ -215,7 +215,7 @@
     <rect x="{side_height - tab_edge_distance - material_thickness}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
 
     <!-- Accessory Hole -->
-    <use xlink:href="#accessory_hole" transform="translate({cross_position=tab_edge_distance + material_thickness + ((motor_x - tab_edge_distance - material_thickness)/2)}, {shovel_ramp_length + (tab_length/2) + (tab_edge_distance - (cross_position / (Math.tan(shovel_angle * (Math.PI / 180)))))})"/>
+    <use xlink:href="#accessory_hole" transform="translate({cross_position=(tab_edge_distance*2) + material_thickness + (tab_length/2)}, {shovel_ramp_length + (tab_length/2) + (tab_edge_distance - (cross_position / (Math.tan(shovel_angle * (Math.PI / 180)))))})"/>
 
   </g>
 </g>
