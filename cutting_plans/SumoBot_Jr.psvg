@@ -6,12 +6,12 @@
 
 <desc>A laser cuttable robotics platform.</desc>
 <defs>
-  <ref param="material_thickness" default="5"/>
+  <ref param="wood_hug_factor" default="0.25"/>
+  <ref param="material_thickness" default="5 - wood_hug_factor"/>
+  <ref param="tab_length" default="10 - wood_hug_factor"/>
   <ref param="servo_height" default="20.5"/>
   <ref param="servo_length" default="41"/>
   <ref param="battery_case_height" default="15"/>
-  <ref param="tab_length" default="10"/>
-  <ref param="wood_hug_factor" default="0.25"/>
   <ref param="shovel_angle" default="80"/>
   <ref param="shovel_height" default="45"/>
   <ref param="shovel_width" default="105"/>
@@ -151,7 +151,7 @@
 
 </g>
 
-<g id="right_wheel" label="wheels" transform="translate({shovel_width + wheel_radius + 4},{side_length + wheel_radius + 4})">
+<g id="right_wheel" label="wheels" transform="translate({shovel_width + wheel_radius + 4},{side_length + wheel_radius + 4}) rotate(45)">
   <g id="wheel_template">
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{wheel_radius}"/>
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="0" cy="0" r="{screw_radius}"/>
@@ -178,7 +178,7 @@
   </g>
 </g>
 
-<g id="left_wheel" label="wheels" transform="translate({shovel_width + wheel_radius + 4}, {side_length + (wheel_radius*3) + 6})">
+<g id="left_wheel" label="wheels" transform="translate({shovel_width + wheel_radius + 4}, {side_length + (wheel_radius*3) + 6}) rotate(-45)">
   <use xlink:href="#wheel_template"/>
 </g>
 
