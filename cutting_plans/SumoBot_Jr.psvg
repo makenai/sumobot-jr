@@ -30,10 +30,32 @@
 
 <rect x="0" y="0" fill="none" stroke="#FF00FF" stroke-width="0.5" stroke-miterlimit="10" width="210" height="297"/>
 
-<g id="top" label="top" transform="translate(2,2)">
+<g id="top" label="top" transform="translate(2,{2 + (ramp_height_at_tab = Math.cos(shovel_angle * (Math.PI / 180)) * (tab_edge_distance + material_thickness))})">
 
   <!-- Top -->
-  <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" points="   {material_thickness},0   {x=sled_width+material_thickness},0   {x}, {tab_edge_distance}   {x+material_thickness}, {tab_edge_distance}   {x+material_thickness}, {tab_edge_distance+tab_length}   {x}, {tab_edge_distance+tab_length}   {x}, {y=sled_length-tab_edge_distance-tab_length}   {x+material_thickness}, {y}   {x+material_thickness}, {y+tab_length}   {x}, {y+tab_length}   {x}, {sled_length}   {material_thickness}, {sled_length}   {material_thickness}, {sled_length-tab_edge_distance}   0, {sled_length-tab_edge_distance}   0, {sled_length-tab_edge_distance-tab_length}   {material_thickness}, {sled_length-tab_edge_distance-tab_length}   {material_thickness}, {tab_edge_distance+tab_length}   0, {tab_edge_distance+tab_length}   0, {tab_edge_distance}   {material_thickness}, {tab_edge_distance}   {material_thickness},0   "/>
+  <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" points="
+    {material_thickness},{-ramp_height_at_tab}
+    {x=sled_width+material_thickness},{-ramp_height_at_tab}
+    {x}, {tab_edge_distance}
+    {x+material_thickness}, {tab_edge_distance}
+    {x+material_thickness}, {tab_edge_distance+tab_length}
+    {x}, {tab_edge_distance+tab_length}
+    {x}, {y=sled_length-tab_edge_distance-tab_length}
+    {x+material_thickness}, {y}
+    {x+material_thickness}, {y+tab_length}
+    {x}, {y+tab_length}
+    {x}, {sled_length}
+    {material_thickness}, {sled_length}
+    {material_thickness}, {sled_length-tab_edge_distance}
+    0, {sled_length-tab_edge_distance}
+    0, {sled_length-tab_edge_distance-tab_length}
+    {material_thickness}, {sled_length-tab_edge_distance-tab_length}
+    {material_thickness}, {tab_edge_distance+tab_length}
+    0, {tab_edge_distance+tab_length}
+    0, {tab_edge_distance}
+    {material_thickness}, {tab_edge_distance}
+    {material_thickness},{-ramp_height_at_tab}
+  "/>
 
   <!-- Arduino Uno Mount Holes -->
   <g id="arduino_mounts" transform="translate({(sled_width/2)-(48.3/2)+material_thickness}, {sled_length - 50.8 - 14})">
@@ -60,7 +82,7 @@
   </g>
 </g>
 
-<g id="bottom" label="bottom" transform="translate(2,{sled_length+4})">
+<g id="bottom" label="bottom" transform="translate(2,{sled_length+4+ramp_height_at_tab})">
 
   <!-- Bottom -->
 
@@ -71,13 +93,13 @@
     {x+material_thickness}, {tab_edge_distance}
     {x+material_thickness}, {tab_edge_distance+tab_length}
     {x}, {tab_edge_distance+tab_length}
-    {x}, {y = side_length-tab_edge_distance-tab_length-(ramp_height_at_bottom_tab = Math.cos(shovel_angle * (Math.PI / 180)) * (tab_edge_distance + material_thickness))}
+    {x}, {y = side_length - tab_edge_distance-tab_length - ramp_height_at_tab}
     {x+material_thickness}, {y}
     {x+material_thickness}, {y+tab_length}
     {x}, {y+tab_length}
-    {x}, {side_length - ramp_height_at_bottom_tab}
-    {material_thickness}, {side_length - ramp_height_at_bottom_tab}
-    {material_thickness}, {y=side_length - ramp_height_at_bottom_tab - tab_edge_distance}
+    {x}, {side_length - ramp_height_at_tab}
+    {material_thickness}, {side_length - ramp_height_at_tab}
+    {material_thickness}, {y=side_length - ramp_height_at_tab - tab_edge_distance}
     0, {y}
     0, {y-tab_length}
     {material_thickness}, {y-tab_length}
@@ -95,19 +117,19 @@
   </g>
 
   <!-- Motor Ziptie holes -->
-  <rect x="{material_thickness + tab_edge_distance}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab - 2.5}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+  <rect x="{material_thickness + tab_edge_distance}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_tab - 2.5}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
 
-  <rect x="{material_thickness + sled_width - tab_edge_distance - 5}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab - 2.5}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+  <rect x="{material_thickness + sled_width - tab_edge_distance - 5}" y="{side_length - servo_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_tab - 2.5}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
 
-  <rect x="{material_thickness + tab_edge_distance}" y="{side_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+  <rect x="{material_thickness + tab_edge_distance}" y="{side_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_tab}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
 
-  <rect x="{material_thickness + sled_width - tab_edge_distance - 5}" y="{side_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_bottom_tab}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
+  <rect x="{material_thickness + sled_width - tab_edge_distance - 5}" y="{side_length - tab_edge_distance - tab_length - tab_edge_distance - ramp_height_at_tab}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="5" height="2.5"/>
 
   <!-- Arrow -->
-  <path d="M0,3.129v-6.258L2.831-0.45L0-3.129L-2.831-0.45L0-3.129V3.129z" stroke="#0000FF" stroke-width="0.5" transform="translate({(sled_width/2)+material_thickness},{(side_length - ramp_height_at_bottom_tab)/2})"/>
+  <path d="M0,3.129v-6.258L2.831-0.45L0-3.129L-2.831-0.45L0-3.129V3.129z" stroke="#0000FF" stroke-width="0.5" transform="translate({(sled_width/2)+material_thickness},{(side_length - ramp_height_at_tab)/2})"/>
 </g>
 
-<g id="shovel" label="shovel" transform="translate(2,{sled_length + side_length + 6})">
+<g id="shovel" label="shovel" transform="translate(2,{sled_length + side_length + 4 + ramp_height_at_tab})">
   
   <!-- Shovel -->
   <rect x="0" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{shovel_width}" height="{shovel_height}"/>
@@ -210,7 +232,7 @@
 
     <rect x="{tab_edge_distance}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
 
-    <rect x="{side_height - tab_edge_distance - material_thickness}" y="{ramp_height_at_bottom_tab + tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+    <rect x="{side_height - tab_edge_distance - material_thickness}" y="{ramp_height_at_tab + tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
 
     <rect x="{side_height - tab_edge_distance - material_thickness}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
 
