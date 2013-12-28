@@ -11,11 +11,12 @@
   <ref param="servo_length" default="41"/>
   <ref param="battery_case_height" default="15"/>
   <ref param="tab_length" default="10"/>
-  <ref param="shovel_angle" default="70"/>
-  <ref param="shovel_height" default="40"/>
-  <ref param="shovel_width" default="100"/>
+  <ref param="wood_hug_factor" default="0.25"/>
+  <ref param="shovel_angle" default="75"/>
+  <ref param="shovel_height" default="45"/>
+  <ref param="shovel_width" default="105"/>
   <ref param="tab_edge_distance" default="5"/>
-  <ref param="sled_length" default="70"/>
+  <ref param="sled_length" default="75"/>
   <ref param="sled_width" default="60"/>
   <ref param="side_height" default="((material_thickness + tab_edge_distance) * 2 ) + servo_height + battery_case_height"/>
   <ref param="shovel_ramp_length" default="side_height / Math.tan(shovel_angle * (Math.PI / 180))"/>
@@ -116,18 +117,37 @@
   <rect x="{((shovel_width-sled_width)/2)+sled_width}" y="{shovel_height/2 - tab_length/2}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
 
   <!-- Grill -->
-<g id="grill" transform="translate({(shovel_width/2) - (((9 * grill_spacing) - (screw_radius * 2))/2)}, {tab_edge_distance})">
-  <rect x="0" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-  <rect x="{grill_spacing}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-  <rect x="{grill_spacing * 2}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-  <rect x="{grill_spacing * 3}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-  <rect x="{grill_spacing  * 4}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-  <rect x="{grill_spacing * 5}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-  <rect x="{grill_spacing * 6}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-  <rect x="{grill_spacing * 7}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-  <rect x="{grill_spacing * 8}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
-</g>
+  <g id="grill" transform="translate({(shovel_width/2) - (((9 * grill_spacing) - (screw_radius * 2))/2)}, {tab_edge_distance})">
+    <rect x="0" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+    <rect x="{grill_spacing}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+    <rect x="{grill_spacing * 2}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+    <rect x="{grill_spacing * 3}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+    <rect x="{grill_spacing  * 4}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+    <rect x="{grill_spacing * 5}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+    <rect x="{grill_spacing * 6}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+    <rect x="{grill_spacing * 7}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+    <rect x="{grill_spacing * 8}" y="0" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{screw_radius*2}" height="{shovel_height - (tab_edge_distance * 2)}" rx="{screw_radius}" ry="{screw_radius}"/>
+  </g>
 
+  <g transform="translate({tab_edge_distance + (tab_length/2)}, {tab_edge_distance + (tab_length/2)})">
+    <polygon fill="none" id="accessory_hole" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" points="
+      {-tab_length/2}, {-material_thickness/2}
+      {-material_thickness/2}, {-material_thickness/2}
+      {-material_thickness/2}, {-tab_length/2}
+      {material_thickness/2}, {-tab_length/2}
+      {material_thickness/2}, {-material_thickness/2}
+      {tab_length/2}, {-material_thickness/2}
+      {tab_length/2}, {material_thickness/2}
+      {material_thickness/2}, {material_thickness/2}
+      {material_thickness/2}, {tab_length/2}
+      {-material_thickness/2}, {tab_length/2}
+      {-material_thickness/2}, {material_thickness/2}
+      {-tab_length/2}, {material_thickness/2}
+      {-tab_length/2}, {-material_thickness/2}
+    "/>
+  </g>
+
+  <use xlink:href="#accessory_hole" transform="translate({shovel_width - (tab_edge_distance + (tab_length/2))}, {tab_edge_distance + (tab_length/2)})"/>
 
 </g>
 
@@ -164,14 +184,6 @@
 
 <g id="right_side" label="side" transform="translate({(material_thickness * 2) + sled_width + 4},2)">
   <g id="side_template">
-    <!-- Tab Holes -->
-    <rect x="{tab_edge_distance}" y="{tab_edge_distance + shovel_ramp_length}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
-
-    <rect x="{tab_edge_distance}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
-
-    <rect x="{side_height - tab_edge_distance - material_thickness}" y="{ramp_height_at_bottom_tab + tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
-
-    <rect x="{side_height - tab_edge_distance - material_thickness}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
     
     <!-- Side -->
     <polygon fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" points="    {side_height}, {side_length}    0,             {side_length}     0,             {shovel_ramp_length}    {x = (tab_offset = Math.sqrt(Math.pow(55,2) + Math.pow(20,2))-(shovel_height/2)-(tab_length/2))*Math.sin(shovel_angle*(Math.PI/180))}, {y = shovel_ramp_length - tab_offset*Math.cos(shovel_angle*(Math.PI/180))}    {x = x - material_thickness * Math.sin((90-shovel_angle)*(Math.PI/180))}, {y = y - material_thickness * Math.cos((90-shovel_angle)*(Math.PI/180))}    {x = x + tab_length * Math.sin(shovel_angle*(Math.PI/180))}, {y = y - tab_length * Math.cos(shovel_angle*(Math.PI/180))}    {x + material_thickness * Math.sin((90-shovel_angle)*(Math.PI/180))}, {y + material_thickness * Math.cos((90-shovel_angle)*(Math.PI/180))}    {side_height}, 0    {side_height}, {side_length} "/>
@@ -192,6 +204,18 @@
 
     <!-- Wire Holes -->
     <circle fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" cx="{motor_x + (servo_height/2)}" cy="{motor_y + servo_length}" r="3.5"/>
+
+    <!-- Tab Holes -->
+    <rect x="{tab_edge_distance}" y="{tab_edge_distance + shovel_ramp_length}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+
+    <rect x="{tab_edge_distance}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+
+    <rect x="{side_height - tab_edge_distance - material_thickness}" y="{ramp_height_at_bottom_tab + tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+
+    <rect x="{side_height - tab_edge_distance - material_thickness}" y="{side_length - tab_length - tab_edge_distance}" fill="none" stroke="#0000FF" stroke-width="0.5" stroke-miterlimit="10" width="{material_thickness}" height="{tab_length}"/>
+
+    <!-- Accessory Hole -->
+    <use xlink:href="#accessory_hole" transform="translate({cross_position=tab_edge_distance + material_thickness + ((motor_x - tab_edge_distance - material_thickness)/2)}, {shovel_ramp_length + (tab_length/2) + (tab_edge_distance - (cross_position / (Math.tan(shovel_angle * (Math.PI / 180)))))})"/>
 
   </g>
 </g>
