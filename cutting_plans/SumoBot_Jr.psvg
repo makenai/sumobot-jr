@@ -6,11 +6,11 @@
 
 <desc>A laser cuttable robotics platform.</desc>
 <defs>
-  <ref param="wood_hug_factor" default="0.25"/>
+  <ref param="wood_hug_factor" default="0.225"/>
   <ref param="material_thickness" default="5 - wood_hug_factor"/>
   <ref param="tab_length" default="10 - wood_hug_factor"/>
-  <ref param="servo_height" default="20.5"/>
-  <ref param="servo_length" default="41"/>
+  <ref param="servo_height" default="21"/>
+  <ref param="servo_length" default="41.05"/>
   <ref param="battery_case_height" default="15"/>
   <ref param="shovel_angle" default="80"/>
   <ref param="shovel_height" default="45"/>
@@ -27,8 +27,6 @@
   <ref param="caster_position" default="10"/>
   <ref param="grill_spacing" default="5"/>
 </defs>
-
-<rect x="0" y="0" fill="none" stroke="#FF00FF" stroke-width="0.5" stroke-miterlimit="10" width="210" height="297"/>
 
 <g id="top" label="top" transform="translate(2,{2 + (ramp_height_at_tab = Math.cos(shovel_angle * (Math.PI / 180)) * (tab_edge_distance + material_thickness))})">
 
