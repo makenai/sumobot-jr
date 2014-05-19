@@ -10,70 +10,70 @@ var keypress = require('keypress');
 keypress(process.stdin);
 
 var board = new five.Board({
-	io: new Spark({
-		token: process.env.SPARK_TOKEN,
-		deviceId: process.env.SPARK_DEVICE_ID
-	})
+  io: new Spark({
+    token: process.env.SPARK_TOKEN,
+    deviceId: process.env.SPARK_DEVICE_ID
+  })
 });
 
 
 board.on("ready", function() {
 
-	console.log("Welcome to Sumobot Jr, powered wirelessly with the Spark Core!")
-	console.log("Control the bot with the arrow keys, and SPACE to stop.")
+  console.log("Welcome to Sumobot Jr, powered wirelessly with the Spark Core!")
+  console.log("Control the bot with the arrow keys, and SPACE to stop.")
 
 
-	var left_wheel  = new five.Servo({ pin: "D0", type: 'continuous' }).stop();
-	var right_wheel = new five.Servo({ pin: "D1", type: 'continuous' }).stop();
+  var left_wheel  = new five.Servo({ pin: "D0", type: 'continuous' }).stop();
+  var right_wheel = new five.Servo({ pin: "D1", type: 'continuous' }).stop();
 
 
-	process.stdin.resume(); 
-	process.stdin.setEncoding('utf8'); 
-	process.stdin.setRawMode(true); 
+  process.stdin.resume(); 
+  process.stdin.setEncoding('utf8'); 
+  process.stdin.setRawMode(true); 
 
-	process.stdin.on('keypress', function (ch, key) {
-		
-		if ( !key ) return;
-
-
-		if ( key.name == 'q' ) {
-
-			console.log('Quitting');
-			process.exit();
-
-		} else if ( key.name == 'up' ) {
-
-			console.log('Forward');
-			left_wheel.ccw();
-			right_wheel.cw();
-
-		} else if ( key.name == 'down' ) {
-
-			console.log('Backward');
-			left_wheel.cw();
-			right_wheel.ccw();      
-
-		} else if ( key.name == 'left' ) {
-
-			console.log('Left');
-			left_wheel.ccw();
-			right_wheel.ccw();      
+  process.stdin.on('keypress', function (ch, key) {
+    
+    if ( !key ) return;
 
 
-		} else if ( key.name == 'right' ) {
+    if ( key.name == 'q' ) {
 
-			console.log('Right');
-			left_wheel.cw();
-			right_wheel.cw();
+      console.log('Quitting');
+      process.exit();
 
-		} else if ( key.name == 'space' ) {
+    } else if ( key.name == 'up' ) {
 
-			console.log('Stopping');
-			left_wheel.stop();
-			right_wheel.stop();
+      console.log('Forward');
+      left_wheel.ccw();
+      right_wheel.cw();
 
-		}
+    } else if ( key.name == 'down' ) {
 
-	});
+      console.log('Backward');
+      left_wheel.cw();
+      right_wheel.ccw();      
+
+    } else if ( key.name == 'left' ) {
+
+      console.log('Left');
+      left_wheel.ccw();
+      right_wheel.ccw();      
+
+
+    } else if ( key.name == 'right' ) {
+
+      console.log('Right');
+      left_wheel.cw();
+      right_wheel.cw();
+
+    } else if ( key.name == 'space' ) {
+
+      console.log('Stopping');
+      left_wheel.stop();
+      right_wheel.stop();
+
+    }
+
+  });
 
 });
