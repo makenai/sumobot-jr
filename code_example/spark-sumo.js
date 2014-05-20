@@ -44,27 +44,27 @@ board.on("ready", function() {
     } else if ( key.name == 'up' ) {
 
       console.log('Forward');
-      left_wheel.ccw();
-      right_wheel.cw();
+      left_wheel.ccw(0.9);
+      right_wheel.cw(0.9);
 
     } else if ( key.name == 'down' ) {
 
       console.log('Backward');
-      left_wheel.cw();
-      right_wheel.ccw();      
+      left_wheel.cw(0.9);
+      right_wheel.ccw(0.9);      
 
     } else if ( key.name == 'left' ) {
 
       console.log('Left');
-      left_wheel.ccw();
-      right_wheel.ccw();      
+      left_wheel.ccw(0.9);
+      right_wheel.ccw(0.9);      
 
 
     } else if ( key.name == 'right' ) {
 
       console.log('Right');
-      left_wheel.cw();
-      right_wheel.cw();
+      left_wheel.cw(0.9);
+      right_wheel.cw(0.9);
 
     } else if ( key.name == 'space' ) {
 
