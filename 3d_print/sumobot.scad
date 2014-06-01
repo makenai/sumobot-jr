@@ -1,0 +1,87 @@
+/* Parameters */
+
+material_thickness = 4;
+battery_case_height = 16;
+servo_height = 21;
+servo_length = 42;
+sled_length = 80.5;
+tab_edge_distance = 5;
+tab_length = 10;
+ramp_angle = 80;
+
+screw_diameter = 2.5;
+
+
+/* Calculated Values */
+
+sled_height = ((material_thickness + tab_edge_distance) * 2 ) + servo_height + battery_case_height;
+ramp_length = cos( ramp_angle ) * sled_height;
+
+/* Functions */
+
+module servo_hole() {
+	square([servo_length, servo_height]);
+	// screw holes
+	translate([-5,(servo_height/2)+5])
+		circle(d=screw_diameter);
+	translate([-5,(servo_height/2)-5])
+		circle(d=screw_diameter);
+	translate([servo_length+5,(servo_height/2)+5])
+		circle(d=screw_diameter);
+	translate([servo_length+5,(servo_height/2)-5])
+		circle(d=screw_diameter);
+	// wire hole
+	hull() {
+		translate([servo_length-1,servo_height/2])
+			square(6,center=true);
+		translate([servo_length+2,servo_height/2])
+			circle(3,center=true);
+	}
+
+}
+
+module tab_hole() {
+	square([tab_length, material_thickness]);
+}
+
+
+module side() {
+	linear_extrude(height=material_thickness)
+	difference() {
+
+		union() {
+			square([sled_length, sled_height]);
+			polygon([[0,0], [0,sled_height], [-ramp_length,0]] );
+			translate([-ramp_length/2,sled_height/2])
+				rotate(ramp_angle)
+				translate([-tab_length/2,-0.1])
+				tab_hole();
+		}
+	
+		// Servo hole
+		translate([sled_length - servo_length - tab_length - tab_edge_distance - tab_edge_distance, 
+				material_thickness + tab_edge_distance])
+			servo_hole();
+
+		// Bottom right
+		translate([sled_length - tab_length - tab_edge_distance, tab_edge_distance])
+			tab_hole();
+
+		// Bottom Left
+		translate([-ramp_length + tab_edge_distance + cos(ramp_angle)*(tab_edge_distance+material_thickness), 
+				tab_edge_distance])
+			tab_hole();
+
+		// Top left
+		translate([tab_edge_distance, sled_height - material_thickness - tab_edge_distance])
+			tab_hole();
+
+		// Top right
+		translate([sled_length - tab_length - tab_edge_distance, 
+				sled_height - material_thickness - tab_edge_distance])
+			tab_hole();
+	}
+}
+
+
+side();
