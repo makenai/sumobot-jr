@@ -16,6 +16,7 @@ screw_diameter = 2.5;
 
 sled_height = ((material_thickness + tab_edge_distance) * 2 ) + servo_height + battery_case_height;
 ramp_length = cos( ramp_angle ) * sled_height;
+side_length = sled_length + ramp_length;
 
 /* Functions */
 
@@ -42,6 +43,10 @@ module servo_hole() {
 
 module tab_hole() {
 	square([tab_length, material_thickness]);
+}
+
+module tab() {
+	tab_hole();
 }
 
 
@@ -84,4 +89,38 @@ module side() {
 }
 
 
-side();
+module bottom() {
+	linear_extrude(height=material_thickness)
+	union() {
+		square([side_length,sled_height]);
+		translate([tab_edge_distance,-material_thickness])
+			tab();
+		translate([tab_edge_distance,sled_height])
+			tab();
+		translate([side_length-tab_length-tab_edge_distance,sled_height])
+			tab();
+		translate([side_length-tab_length-tab_edge_distance,-material_thickness])
+			tab();
+	}
+}
+
+module top() {
+	linear_extrude(height=material_thickness)
+	union() {
+		square([sled_length,sled_height]);
+		translate([tab_edge_distance,-material_thickness])
+			tab();
+		translate([tab_edge_distance,sled_height])
+			tab();
+		translate([sled_length-tab_length-tab_edge_distance,sled_height])
+			tab();
+		translate([sled_length-tab_length-tab_edge_distance,-material_thickness])
+			tab();
+	}
+}
+
+top();
+
+translate([100,0]) bottom();
+
+translate([0,80]) side();
