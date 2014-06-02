@@ -1,20 +1,22 @@
 /* Parameters */
 
-material_thickness = 4;
+material_thickness = 2;
 battery_case_height = 16;
-servo_height = 21;
-servo_length = 42;
+servo_height = 21.5;
+servo_length = 42.5;
 sled_length = 80.5;
 tab_edge_distance = 5;
+tab_spacing = 0.5;
 tab_length = 10;
 ramp_angle = 80;
 
-screw_diameter = 2.5;
+screw_diameter = 3;
 
 
 /* Calculated Values */
 
-sled_height = ((material_thickness + tab_edge_distance) * 2 ) + servo_height + battery_case_height;
+sled_height = ((material_thickness + tab_edge_distance) * 2 ) + 
+	servo_height + battery_case_height;
 ramp_length = cos( ramp_angle ) * sled_height;
 side_length = sled_length + ramp_length;
 
@@ -23,26 +25,31 @@ side_length = sled_length + ramp_length;
 module servo_hole() {
 	square([servo_length, servo_height]);
 	// screw holes
-	translate([-5,(servo_height/2)+5])
+	translate([-4.5,(servo_height/2)+5])
 		circle(d=screw_diameter);
-	translate([-5,(servo_height/2)-5])
+	translate([-4.5,(servo_height/2)-5])
 		circle(d=screw_diameter);
-	translate([servo_length+5,(servo_height/2)+5])
+	translate([servo_length+4.5,(servo_height/2)+5])
 		circle(d=screw_diameter);
-	translate([servo_length+5,(servo_height/2)-5])
+	translate([servo_length+4.5,(servo_height/2)-5])
 		circle(d=screw_diameter);
 	// wire hole
 	hull() {
 		translate([servo_length-1,servo_height/2])
 			square(6,center=true);
-		translate([servo_length+2,servo_height/2])
+		translate([servo_length+2.5,servo_height/2])
 			circle(3,center=true);
 	}
 
 }
 
+module tab() {
+square([tab_length, material_thickness]);
+}
+
 module tab_hole() {
-	square([tab_length, material_thickness]);
+	translate([tab_spacing/-2,tab_spacing/-2])
+		square([tab_length + tab_spacing, material_thickness +tab_spacing]);
 }
 
 module tab() {
@@ -60,7 +67,7 @@ module side() {
 			translate([-ramp_length/2,sled_height/2])
 				rotate(ramp_angle)
 				translate([-tab_length/2,-0.1])
-				tab_hole();
+				tab();
 		}
 	
 		// Servo hole
