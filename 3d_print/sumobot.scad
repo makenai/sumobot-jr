@@ -44,18 +44,13 @@ module servo_hole() {
 }
 
 module tab() {
-square([tab_length, material_thickness]);
+	square([tab_length, material_thickness]);
 }
 
 module tab_hole() {
 	translate([tab_spacing/-2,tab_spacing/-2])
 		square([tab_length + tab_spacing, material_thickness +tab_spacing]);
 }
-
-module tab() {
-	tab_hole();
-}
-
 
 module side() {
 	linear_extrude(height=material_thickness)
