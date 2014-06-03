@@ -22,25 +22,8 @@ side_length = sled_length + ramp_length;
 
 /* Functions */
 
-module servo_hole() {
-	square([servo_length, servo_height]);
-	// screw holes
-	translate([-4.5,(servo_height/2)+5])
-		circle(d=screw_diameter);
-	translate([-4.5,(servo_height/2)-5])
-		circle(d=screw_diameter);
-	translate([servo_length+4.5,(servo_height/2)+5])
-		circle(d=screw_diameter);
-	translate([servo_length+4.5,(servo_height/2)-5])
-		circle(d=screw_diameter);
-	// wire hole
-	hull() {
-		translate([servo_length-1,servo_height/2])
-			square(6,center=true);
-		translate([servo_length+2.5,servo_height/2])
-			circle(3,center=true);
-	}
-
+module screw_hole() {
+	circle(d=screw_diameter);
 }
 
 module tab() {
@@ -51,6 +34,35 @@ module tab_hole() {
 	translate([tab_spacing/-2,tab_spacing/-2])
 		square([tab_length + tab_spacing, material_thickness +tab_spacing]);
 }
+
+module servo_hole() {
+	square([servo_length, servo_height]);
+	// screw holes
+	translate([-4.5,(servo_height/2)+5])
+		screw_hole();
+	translate([-4.5,(servo_height/2)-5])
+		screw_hole();
+	translate([servo_length+4.5,(servo_height/2)+5])
+		screw_hole();
+	translate([servo_length+4.5,(servo_height/2)-5])
+		screw_hole();
+	// wire hole
+	hull() {
+		translate([servo_length-1,servo_height/2])
+			square(6,center=true);
+		translate([servo_length+2.5,servo_height/2])
+			circle(3,center=true);
+	}
+
+}
+
+module arduino_holes() {
+	translate([0, 17.7]) screw_hole();
+	translate([0, 45.1]) screw_hole();
+	translate([50.8, 2.5]) screw_hole();
+	translate([52.1, 48.5]) screw_hole();
+}
+
 
 module side() {
 	linear_extrude(height=material_thickness)
@@ -108,21 +120,24 @@ module bottom() {
 
 module top() {
 	linear_extrude(height=material_thickness)
-	union() {
-		square([sled_length,sled_height]);
-		translate([tab_edge_distance,-material_thickness])
-			tab();
-		translate([tab_edge_distance,sled_height])
-			tab();
-		translate([sled_length-tab_length-tab_edge_distance,sled_height])
-			tab();
-		translate([sled_length-tab_length-tab_edge_distance,-material_thickness])
-			tab();
+	difference() {
+		union() {
+			square([sled_length,sled_height]);
+			translate([tab_edge_distance,-material_thickness])
+				tab();
+			translate([tab_edge_distance,sled_height])
+				tab();
+			translate([sled_length-tab_length-tab_edge_distance,sled_height])
+				tab();
+			translate([sled_length-tab_length-tab_edge_distance,-material_thickness])
+				tab();
+		}
+		translate([sled_length - 66.1, sled_height/2 - 51/2]) arduino_holes();
 	}
 }
 
 top();
 
-translate([100,0]) bottom();
+//translate([100,0]) bottom();
 
-translate([0,80]) side();
+//translate([0,80]) side();
