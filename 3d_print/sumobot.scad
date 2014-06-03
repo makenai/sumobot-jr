@@ -1,12 +1,12 @@
 /* Parameters */
 
-material_thickness = 2;
+material_thickness = 4;
 battery_case_height = 16;
 servo_height = 21.5;
 servo_length = 42.5;
 sled_length = 80.5;
 tab_edge_distance = 5;
-tab_spacing = 0.5;
+tab_spacing = 0.75;
 tab_length = 10;
 ramp_angle = 80;
 
@@ -19,6 +19,7 @@ sled_height = ((material_thickness + tab_edge_distance) * 2 ) +
 	servo_height + battery_case_height;
 ramp_length = cos( ramp_angle ) * sled_height;
 side_length = sled_length + ramp_length;
+ramp_tab_distance = cos(ramp_angle)*(tab_edge_distance+material_thickness);
 
 /* Functions */
 
@@ -75,7 +76,7 @@ module side() {
 			tab_hole();
 
 		// Bottom Left
-		translate([-ramp_length + tab_edge_distance + cos(ramp_angle)*(tab_edge_distance+material_thickness), 
+		translate([-ramp_length + tab_edge_distance + ramp_tab_distance, 
 				tab_edge_distance])
 			tab_hole();
 
@@ -95,12 +96,16 @@ module bottom() {
 	linear_extrude(height=material_thickness)
 	union() {
 		square([side_length,sled_height]);
-		translate([tab_edge_distance,-material_thickness])
+		// Bottom left
+		translate([ramp_tab_distance+tab_edge_distance,-material_thickness])
 			tab();
-		translate([tab_edge_distance,sled_height])
+		// Top left
+		translate([ramp_tab_distance+tab_edge_distance,sled_height])
 			tab();
+		// Top right
 		translate([side_length-tab_length-tab_edge_distance,sled_height])
 			tab();
+		// Top left
 		translate([side_length-tab_length-tab_edge_distance,-material_thickness])
 			tab();
 	}
@@ -122,7 +127,5 @@ module top() {
 }
 
 top();
-
-translate([100,0]) bottom();
-
-translate([0,80]) side();
+//side();
+//bottom();
