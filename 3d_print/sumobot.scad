@@ -10,7 +10,13 @@ tab_spacing = 0.75;
 tab_length = 10;
 ramp_angle = 80;
 
+ziptie_height = 5;
+ziptie_width = 2;
+
 screw_diameter = 3;
+
+caster_screw_spacing = 25;
+caster_position = 10;
 
 
 /* Calculated Values */
@@ -34,6 +40,10 @@ module tab() {
 module tab_hole() {
 	translate([tab_spacing/-2,tab_spacing/-2])
 		square([tab_length + tab_spacing, material_thickness +tab_spacing]);
+}
+
+module ziptie_hole() {
+	square([ziptie_width,ziptie_height]);
 }
 
 module servo_hole() {
@@ -106,20 +116,34 @@ module side() {
 
 module bottom() {
 	linear_extrude(height=material_thickness)
-	union() {
-		square([side_length,sled_height]);
-		// Bottom left
-		translate([ramp_tab_distance+tab_edge_distance,-material_thickness])
-			tab();
-		// Top left
-		translate([ramp_tab_distance+tab_edge_distance,sled_height])
-			tab();
-		// Top right
-		translate([side_length-tab_length-tab_edge_distance,sled_height])
-			tab();
-		// Top left
-		translate([side_length-tab_length-tab_edge_distance,-material_thickness])
-			tab();
+	difference() {
+		union() {
+			square([side_length,sled_height]);
+			translate([tab_edge_distance + ramp_tab_distance,-material_thickness])
+				tab();
+			translate([tab_edge_distance + ramp_tab_distance,sled_height])
+				tab();
+			translate([side_length-tab_length-tab_edge_distance,sled_height])
+				tab();
+			translate([side_length-tab_length-tab_edge_distance,-material_thickness])
+				tab();
+		}
+		translate([caster_position, sled_height/2 + caster_screw_spacing/2]) screw_hole();
+		translate([caster_position, sled_height/2 - caster_screw_spacing/2]) screw_hole();
+
+		// Ziptie Holes
+		translate([side_length - servo_length - tab_length - tab_edge_distance - 
+				tab_edge_distance - ziptie_width, servo_height/2 - (ziptie_height/2)])
+			ziptie_hole(); // Bottom Left
+		translate([side_length - servo_length - tab_length - tab_edge_distance - 
+				tab_edge_distance - ziptie_width, sled_height - ziptie_height - servo_height/2 + (ziptie_height/2)])
+			ziptie_hole(); // Top Left
+		translate([side_length - tab_length - tab_edge_distance - tab_edge_distance, 
+				servo_height/2 - (ziptie_height/2)])
+			ziptie_hole(); // Bottom Right
+		translate([side_length - tab_length - tab_edge_distance - tab_edge_distance, 
+				sled_height - ziptie_height - servo_height/2 + (ziptie_height/2)])
+			ziptie_hole(); // Top Right
 	}
 }
 
@@ -141,7 +165,8 @@ module top() {
 	}
 }
 
-top();
+//top();
 
-//translate([100,0]) bottom();
-//translate([0,80]) side();
+bottom();
+
+translate([ramp_length,62]) side();
