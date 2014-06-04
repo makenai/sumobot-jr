@@ -99,24 +99,32 @@ module arduino_holes() {
 }
 
 module pinoccio_mount() {
+	height = 10.5;
+	base_width = 25;
+	base_length = 43;
+	bevel_width = 11;
+	bevel_length = 8;
+	wall_thickness = 2;
+	plug_hole_size = 3.5;
+
 	difference() {
-		linear_extrude(10.5)
-		difference() {
-			hull() {
-				square([49,30]);
-				translate([-11,8,0])
-					square(14);
-			}
-			translate([2,2])
-			hull() {
-				square([46,26]);
-				translate([-11,8,0])
-					square(11);
-			}
+		linear_extrude(height)
+		hull() {
+			translate([0,-wall_thickness])
+				square([base_length + wall_thickness,base_width + wall_thickness*2]);
+ 			translate([-bevel_length - wall_thickness,base_width/2-bevel_width/2])	
+				square(bevel_width);
 		}
-		translate([46,15,10.5])
+		translate([0,0,-1])
+		linear_extrude(height+2)
+		hull() {
+			square([base_length,base_width]);
+			translate([-bevel_length,base_width/2-bevel_width/2])
+				square(bevel_width); 
+		}
+		translate([base_length-1, base_width/2,height])
 			rotate([0,90])
-			cylinder(r=6,h=4);
+			cylinder(r=plug_hole_size,h=wall_thickness+2);
 	}
 }
 
