@@ -103,8 +103,8 @@ module pinoccio_mount() {
 	height = 10.5;
 	base_width = 26.5;
 	base_length = 45.5;
-	bevel_width = 11.5;
-	bevel_length = 9;
+	bevel_width = 11;
+	bevel_length =8.5;
 	wall_thickness = 2;
 	plug_hole_size = 3.5;
 
@@ -179,9 +179,9 @@ module bottom() {
 				tab();
 			translate([tab_edge_distance, sled_height])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance,sled_height])
+			translate([side_length-tab_length-tab_edge_distance - tab_spacing/2,sled_height])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance,-material_thickness])
+			translate([side_length-tab_length-tab_edge_distance - tab_spacing/2,-material_thickness])
 				tab();
 		}
 
@@ -211,6 +211,7 @@ module bottom() {
 }
 
 module top() {
+	union() {
 	linear_extrude(height=material_thickness)
 	difference() {
 		union() {
@@ -224,7 +225,10 @@ module top() {
 			translate([sled_length-tab_length-tab_edge_distance,-material_thickness])
 				tab();
 		}
-		translate([sled_length - 66.1, sled_height/2 - 48.2/2]) arduino_holes();
+		//translate([sled_length - 66.1, sled_height/2 - 48.2/2]) arduino_holes();
+	}
+	translate([sled_length/2,sled_height/2,material_thickness])
+		pinoccio_mount();
 	}
 }
 
@@ -261,14 +265,9 @@ module shovel() {
 	}
 }
 
-// top();
+top();
 
-
-//pinoccio_mount();
-
-
-
-shovel();
+//shovel();
 
 //bottom();
 
