@@ -98,6 +98,28 @@ module arduino_holes() {
 	translate([52.1, 48.2]) screw_hole();
 }
 
+module pinoccio_mount() {
+	difference() {
+		linear_extrude(10.5)
+		difference() {
+			hull() {
+				square([49,30]);
+				translate([-11,8,0])
+					square(14);
+			}
+			translate([2,2])
+			hull() {
+				square([46,26]);
+				translate([-11,8,0])
+					square(11);
+			}
+		}
+		translate([46,15,10.5])
+			rotate([0,90])
+			cylinder(r=6,h=4);
+	}
+}
+
 
 module side() {
 	linear_extrude(height=material_thickness)
@@ -209,10 +231,15 @@ module shovel() {
 	}
 }
 
-//top();
+// top();
+
+
+pinoccio_mount();
+
+
 
 //shovel();
 
-bottom();
+//bottom();
 
 //translate([ramp_length,62]) side();
