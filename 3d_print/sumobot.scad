@@ -13,12 +13,20 @@ shovel_width = 105;
 shovel_height = 45;
 
 ziptie_height = 5;
-ziptie_width = 2;
+ziptie_width = 2.5;
 
 screw_diameter = 3;
 
 caster_screw_spacing = 25;
-caster_position = 10;
+caster_position = 12;
+
+// Caster
+WallThickness = 2;
+BallSize = 12.7;
+Airgap = .5;
+Mount = 3;
+TotalHeight = 14;
+BallProtrude = .33;
 
 
 /* Calculated Values */
@@ -46,6 +54,20 @@ module tab_hole() {
 
 module ziptie_hole() {
 	square([ziptie_width,ziptie_height]);
+}
+
+module caster() {
+	cylheight = TotalHeight;
+	cylrad = (BallSize/2) + WallThickness + Airgap;
+	difference () {
+		cylinder(r1 = cylrad , r2 = cylrad,  cylheight - (BallSize*BallProtrude));
+		translate([0,0,TotalHeight - BallSize/2]) {
+			cube(size = [cylrad*2+5, cylrad/2, BallSize*1.25], center = true );
+		}
+		translate([0,0,TotalHeight - (BallSize/2)]) {
+			sphere (BallSize/2+Airgap, $fa=5, $fs=0.1);
+		}
+	}
 }
 
 module servo_hole() {
@@ -130,8 +152,10 @@ module bottom() {
 			translate([side_length-tab_length-tab_edge_distance,-material_thickness])
 				tab();
 		}
-		translate([caster_position, sled_height/2 + caster_screw_spacing/2]) screw_hole();
-		translate([caster_position, sled_height/2 - caster_screw_spacing/2]) screw_hole();
+
+		// Screw Holes
+		// translate([caster_position, sled_height/2 + caster_screw_spacing/2]) screw_hole();
+		// translate([caster_position, sled_height/2 - caster_screw_spacing/2]) screw_hole();
 
 		// Ziptie Holes
 		translate([side_length - servo_length - tab_length - tab_edge_distance - 
@@ -147,6 +171,11 @@ module bottom() {
 				sled_height - ziptie_height - servo_height/2 + (ziptie_height/2)])
 			ziptie_hole(); // Top Right
 	}
+	// Caster
+	rotate([0,0,90])
+	translate([sled_height/2, -caster_position, material_thickness])
+		caster();
+
 }
 
 module top() {
@@ -171,19 +200,19 @@ module top() {
 module shovel() {
 	linear_extrude(height=material_thickness)
 	difference() {
-		square([shovel_height, shovel_width]);
-		translate([shovel_height/2 - tab_length/2, shovel_width/2 - material_thickness - sled_height/2]) 
-			tab_hole();
-		translate([shovel_height/2 - tab_length/2, shovel_width/2 + sled_height/2]) 
-			tab_hole();
+		square([shovel_width, shovel_height]);
+		translate([ shovel_width/2 - sled_height/2, shovel_height/2 - tab_length/2]) 
+			rotate([0,0,90]) tab_hole();
+		translate([shovel_width/2 + sled_height/2 + material_thickness, shovel_height/2 - tab_length/2]) 
+			rotate([0,0,90]) tab_hole();
 
 	}
 }
 
-shovel();
-
 //top();
 
-//bottom();
+//shovel();
+
+bottom();
 
 //translate([ramp_length,62]) side();
