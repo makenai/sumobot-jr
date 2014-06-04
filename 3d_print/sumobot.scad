@@ -102,7 +102,7 @@ module arduino_holes() {
 module pinoccio_mount() {
 	height = 10.5;
 	base_width = 26.5;
-	base_length = 44;
+	base_length = 45.5;
 	bevel_width = 11.5;
 	bevel_length = 9;
 	wall_thickness = 2;
