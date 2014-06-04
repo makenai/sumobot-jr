@@ -9,8 +9,9 @@ tab_edge_distance = 5;
 tab_spacing = 0.75;
 tab_length = 10;
 ramp_angle = 80;
-shovel_width = 105;
+shovel_width = 90;
 shovel_height = 45;
+shovel_side_height = 20;
 
 ziptie_height = 5;
 ziptie_width = 2.5;
@@ -178,9 +179,9 @@ module bottom() {
 				tab();
 			translate([tab_edge_distance, sled_height])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance - ramp_tab_distance,sled_height])
+			translate([side_length-tab_length-tab_edge_distance,sled_height])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance - ramp_tab_distance,-material_thickness])
+			translate([side_length-tab_length-tab_edge_distance,-material_thickness])
 				tab();
 		}
 
@@ -227,8 +228,24 @@ module top() {
 	}
 }
 
+module sloped_support(size) {
+	difference() {
+		cube([size,material_thickness,size]);
+		translate([size,material_thickness+1,size])
+			rotate([90])
+			cylinder(r=size-material_thickness,h=material_thickness+2);
+	}
+}
+
+module shovel_side() {
+	cube([material_thickness,shovel_height,shovel_side_height]);
+	sloped_support(shovel_side_height);
+	translate([0,shovel_height-material_thickness])
+		sloped_support(shovel_side_height);
+}
 
 module shovel() {
+	union() {
 	linear_extrude(height=material_thickness)
 	difference() {
 		square([shovel_width, shovel_height]);
@@ -236,18 +253,22 @@ module shovel() {
 			rotate([0,0,90]) tab_hole();
 		translate([shovel_width/2 + sled_height/2 + material_thickness, shovel_height/2 - tab_length/2]) 
 			rotate([0,0,90]) tab_hole();
-
+	}
+	shovel_side();
+	translate([shovel_width,shovel_height])
+	rotate([0,0,180])
+		shovel_side();
 	}
 }
 
 // top();
 
 
-pinoccio_mount();
+//pinoccio_mount();
 
 
 
-//shovel();
+shovel();
 
 //bottom();
 
