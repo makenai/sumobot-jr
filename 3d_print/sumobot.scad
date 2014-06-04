@@ -100,13 +100,14 @@ module arduino_holes() {
 
 module pinoccio_mount() {
 	height = 10.5;
-	base_width = 25;
-	base_length = 43;
-	bevel_width = 11;
-	bevel_length = 8;
+	base_width = 26.5;
+	base_length = 44;
+	bevel_width = 11.5;
+	bevel_length = 9;
 	wall_thickness = 2;
 	plug_hole_size = 3.5;
 
+	translate([base_length/-2-bevel_length/-2,-base_width/2])
 	difference() {
 		linear_extrude(height)
 		hull() {
