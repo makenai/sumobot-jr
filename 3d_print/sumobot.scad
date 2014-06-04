@@ -9,6 +9,8 @@ tab_edge_distance = 5;
 tab_spacing = 0.75;
 tab_length = 10;
 ramp_angle = 80;
+shovel_width = 105;
+shovel_height = 45;
 
 ziptie_height = 5;
 ziptie_width = 2;
@@ -165,7 +167,22 @@ module top() {
 	}
 }
 
-top();
+
+module shovel() {
+	linear_extrude(height=material_thickness)
+	difference() {
+		square([shovel_height, shovel_width]);
+		translate([shovel_height/2 - tab_length/2, shovel_width/2 - material_thickness - sled_height/2]) 
+			tab_hole();
+		translate([shovel_height/2 - tab_length/2, shovel_width/2 + sled_height/2]) 
+			tab_hole();
+
+	}
+}
+
+shovel();
+
+//top();
 
 //bottom();
 
