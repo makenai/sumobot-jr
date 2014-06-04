@@ -34,8 +34,8 @@ BallProtrude = .33;
 sled_height = ((material_thickness + tab_edge_distance) * 2 ) + 
 	servo_height + battery_case_height;
 ramp_length = cos( ramp_angle ) * sled_height;
-side_length = sled_length + ramp_length;
 ramp_tab_distance = cos(ramp_angle)*(tab_edge_distance+material_thickness);
+side_length = sled_length + ( cos( ramp_angle ) * (sled_height - tab_edge_distance) );
 
 /* Functions */
 
@@ -143,13 +143,13 @@ module bottom() {
 	difference() {
 		union() {
 			square([side_length,sled_height]);
-			translate([tab_edge_distance + ramp_tab_distance,-material_thickness])
+			translate([tab_edge_distance,-material_thickness])
 				tab();
-			translate([tab_edge_distance + ramp_tab_distance,sled_height])
+			translate([tab_edge_distance, sled_height])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance,sled_height])
+			translate([side_length-tab_length-tab_edge_distance - ramp_tab_distance,sled_height])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance,-material_thickness])
+			translate([side_length-tab_length-tab_edge_distance - ramp_tab_distance,-material_thickness])
 				tab();
 		}
 
