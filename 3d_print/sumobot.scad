@@ -68,10 +68,10 @@ module servo_hole() {
 }
 
 module arduino_holes() {
-	translate([0, 17.7]) screw_hole();
-	translate([0, 45.1]) screw_hole();
-	translate([50.8, 2.5]) screw_hole();
-	translate([52.1, 48.5]) screw_hole();
+	translate([0, 15.2]) screw_hole();
+	translate([0, 43.1]) screw_hole();
+	translate([50.8, 0]) screw_hole();
+	translate([52.1, 48.2]) screw_hole();
 }
 
 
@@ -161,12 +161,12 @@ module top() {
 			translate([sled_length-tab_length-tab_edge_distance,-material_thickness])
 				tab();
 		}
-		translate([sled_length - 66.1, sled_height/2 - 51/2]) arduino_holes();
+		translate([sled_length - 66.1, sled_height/2 - 48.2/2]) arduino_holes();
 	}
 }
 
-//top();
+top();
 
-bottom();
+//bottom();
 
-translate([ramp_length,62]) side();
+//translate([ramp_length,62]) side();
