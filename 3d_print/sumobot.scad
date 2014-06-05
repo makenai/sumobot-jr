@@ -35,7 +35,7 @@ BallProtrude = .33;
 sled_height = ((material_thickness + tab_edge_distance) * 2 ) + 
 	servo_height + battery_case_height;
 ramp_length = cos( ramp_angle ) * sled_height;
-ramp_tab_distance = cos(ramp_angle)*(tab_edge_distance+material_thickness);
+ramp_tab_distance = cos(ramp_angle)*( tab_edge_distance + material_thickness);
 side_length = sled_length + ( cos( ramp_angle ) * (sled_height - tab_edge_distance) );
 
 /* Functions */
@@ -154,7 +154,8 @@ module side() {
 			tab_hole();
 
 		// Bottom Left
-		translate([-ramp_length + tab_edge_distance + ramp_tab_distance, 
+		translate([-ramp_length + ramp_tab_distance + tab_edge_distance, 
+//		translate([-ramp_length + bottom_offset + tab_edge_distance, 
 				tab_edge_distance])
 			tab_hole();
 
@@ -171,17 +172,19 @@ module side() {
 
 
 module bottom() {
+	bottom_offset = (ramp_length + sled_length) - side_length;
+	translate([bottom_offset, 0])
 	linear_extrude(height=material_thickness)
 	difference() {
 		union() {
 			square([side_length,sled_height]);
-			translate([tab_edge_distance,-material_thickness])
+			translate([-bottom_offset + ramp_tab_distance + tab_edge_distance,-material_thickness])
 				tab();
-			translate([tab_edge_distance, sled_height])
+			translate([-bottom_offset + ramp_tab_distance + tab_edge_distance, sled_height])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance - tab_spacing/2,sled_height])
+			translate([side_length-tab_length-tab_edge_distance,sled_height])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance - tab_spacing/2,-material_thickness])
+			translate([side_length-tab_length-tab_edge_distance,-material_thickness])
 				tab();
 		}
 
@@ -265,10 +268,13 @@ module shovel() {
 	}
 }
 
-top();
+//top();
 
 //shovel();
 
-//bottom();
 
-//translate([ramp_length,62]) side();
+translate([-12,-50]) {
+bottom();
+
+%translate([ramp_length,52]) side();
+}
