@@ -24,7 +24,7 @@ caster_position = 12;
 
 // Caster
 WallThickness = 2;
-BallSize = 12.7;
+BallSize = 12.5;
 Airgap = .5;
 Mount = 3;
 TotalHeight = 14;
