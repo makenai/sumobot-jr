@@ -22,6 +22,8 @@ screw_diameter = 3;
 caster_screw_spacing = 25;
 caster_position = 12;
 
+wheel_radius = 30;
+
 // Caster
 WallThickness = 2;
 BallSize = 12.5;
@@ -29,6 +31,13 @@ Airgap = .5;
 Mount = 3;
 TotalHeight = 14;
 BallProtrude = .33;
+
+// Servo Wheel
+SERVO_HEAD_CLEAR = 0.2;
+FUTABA_3F_SPLINE = [
+    [6, 4, 1.1, 2.5],
+    [25, 0.3, 0.7, 0.1]
+];
 
 
 /* Calculated Values */
@@ -268,10 +277,70 @@ module shovel() {
 	}
 }
 
+
+module servo_head_tooth(length, width, height, head_height) {
+    linear_extrude(height = head_height) {
+        polygon([[-length / 2, 0], [-width / 2, height], [width / 2, height], [length / 2,0]]);
+    }
+}
+
+/**
+ *  Servo head
+ */
+module servo_head(params, clear = SERVO_HEAD_CLEAR) {
+
+    head = params[0];
+    tooth = params[1];
+
+    head_diameter = head[0];
+    head_heigth = head[1];
+
+    tooth_count = tooth[0];
+    tooth_height = tooth[1];
+    tooth_length = tooth[2];
+    tooth_width = tooth[3];
+
+	union() {
+    cylinder(r = head_diameter / 2 + 0.1, h = head_heigth + 1);
+
+    cylinder(r = head_diameter / 2 - tooth_height + 0.03 + clear, h = head_heigth);
+
+    for (i = [0 : tooth_count]) {
+        rotate([0, 0, i * (360 / tooth_count)]) {
+            translate([0, head_diameter / 2 - tooth_height + clear, 0]) {
+                servo_head_tooth(tooth_length, tooth_width, tooth_height, head_heigth);
+            }
+        }
+    }
+	}
+}
+
+module wheel() {
+	layer_height = material_thickness/3;
+	difference() {
+		union() {
+			cylinder(r=wheel_radius,h=layer_height);
+			translate([0,0,layer_height])
+				cylinder(r=wheel_radius-0.75,h=layer_height);
+			translate([0,0,layer_height*2])
+				cylinder(r=wheel_radius,h=layer_height);
+			cylinder(r=5,h=4.5);
+		}
+		translate([0,0,-1])
+			cylinder(d=screw_diameter,h=material_thickness+2);
+		translate([0,0,1])
+			servo_head(FUTABA_3F_SPLINE);
+
+	}
+}
+
+
+wheel();
+
 //top();
 
 //shovel();
 
-bottom();
+//bottom();
 
 //side();
