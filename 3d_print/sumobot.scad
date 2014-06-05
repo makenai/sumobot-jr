@@ -320,8 +320,7 @@ module wheel() {
 	difference() {
 		union() {
 			cylinder(r=wheel_radius,h=layer_height);
-			translate([0,0,layer_height])
-				cylinder(r=wheel_radius-0.75,h=layer_height);
+				cylinder(r=wheel_radius-0.5,h=material_thickness);
 			translate([0,0,layer_height*2])
 				cylinder(r=wheel_radius,h=layer_height);
 			cylinder(r=5,h=4.5);
