@@ -100,7 +100,7 @@ module arduino_holes() {
 }
 
 module pinoccio_mount() {
-	height = 10.5;
+	height = 11;
 	base_width = 26.5;
 	base_length = 45.5;
 	bevel_width = 11;
@@ -155,7 +155,6 @@ module side() {
 
 		// Bottom Left
 		translate([-ramp_length + ramp_tab_distance + tab_edge_distance, 
-//		translate([-ramp_length + bottom_offset + tab_edge_distance, 
 				tab_edge_distance])
 			tab_hole();
 
@@ -272,9 +271,6 @@ module shovel() {
 
 //shovel();
 
-
-translate([-12,-50]) {
 bottom();
 
-%translate([ramp_length,52]) side();
-}
+//side();
