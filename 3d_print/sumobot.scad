@@ -227,19 +227,19 @@ module top() {
 	linear_extrude(height=material_thickness)
 	difference() {
 		union() {
-			square([sled_length,sled_height]);
+			square([sled_length,sled_width]);
 			translate([tab_edge_distance,-material_thickness])
 				tab();
-			translate([tab_edge_distance,sled_height])
+			translate([tab_edge_distance,sled_width])
 				tab();
-			translate([sled_length-tab_length-tab_edge_distance,sled_height])
+			translate([sled_length-tab_length-tab_edge_distance,sled_width])
 				tab();
 			translate([sled_length-tab_length-tab_edge_distance,-material_thickness])
 				tab();
 		}
-		//translate([sled_length - 66.1, sled_height/2 - 48.2/2]) arduino_holes();
+		//translate([sled_width - 66.1, sled_height/2 - 48.2/2]) arduino_holes();
 	}
-	translate([sled_length/2,sled_height/2,material_thickness])
+	translate([sled_length/2,sled_width/2,material_thickness])
 		pinoccio_mount();
 	}
 }
@@ -334,9 +334,9 @@ module wheel() {
 }
 
 
-wheel();
+//wheel();
 
-//top();
+top();
 
 //shovel();
 
