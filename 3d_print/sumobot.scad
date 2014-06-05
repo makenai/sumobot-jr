@@ -5,6 +5,7 @@ battery_case_height = 16;
 servo_height = 21.5;
 servo_length = 42.5;
 sled_length = 80.5;
+sled_width = 63.5;
 tab_edge_distance = 5;
 tab_spacing = 0.75;
 tab_length = 10;
@@ -176,12 +177,12 @@ module bottom() {
 	linear_extrude(height=material_thickness)
 	difference() {
 		union() {
-			square([side_length,sled_height]);
+			square([side_length,sled_width]);
 			translate([-bottom_offset + ramp_tab_distance + tab_edge_distance,-material_thickness])
 				tab();
-			translate([-bottom_offset + ramp_tab_distance + tab_edge_distance, sled_height])
+			translate([-bottom_offset + ramp_tab_distance + tab_edge_distance, sled_width])
 				tab();
-			translate([side_length-tab_length-tab_edge_distance,sled_height])
+			translate([side_length-tab_length-tab_edge_distance,sled_width])
 				tab();
 			translate([side_length-tab_length-tab_edge_distance,-material_thickness])
 				tab();
@@ -196,18 +197,18 @@ module bottom() {
 				tab_edge_distance - ziptie_width, servo_height/2 - (ziptie_height/2)])
 			ziptie_hole(); // Bottom Left
 		translate([side_length - servo_length - tab_length - tab_edge_distance - 
-				tab_edge_distance - ziptie_width, sled_height - ziptie_height - servo_height/2 + (ziptie_height/2)])
+				tab_edge_distance - ziptie_width, sled_width - ziptie_height - servo_height/2 + (ziptie_height/2)])
 			ziptie_hole(); // Top Left
 		translate([side_length - tab_length - tab_edge_distance - tab_edge_distance, 
 				servo_height/2 - (ziptie_height/2)])
 			ziptie_hole(); // Bottom Right
 		translate([side_length - tab_length - tab_edge_distance - tab_edge_distance, 
-				sled_height - ziptie_height - servo_height/2 + (ziptie_height/2)])
+				sled_width - ziptie_height - servo_height/2 + (ziptie_height/2)])
 			ziptie_hole(); // Top Right
 	}
 	// Caster
 	rotate([0,0,90])
-	translate([sled_height/2, -caster_position, material_thickness])
+	translate([sled_width/2, -caster_position, material_thickness])
 		caster();
 
 }
