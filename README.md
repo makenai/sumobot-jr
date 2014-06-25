@@ -16,6 +16,10 @@ The main part of the design is a cutting sheet in EPS file format that is design
 
 There is also a directory called 3d_print that contains an STL file for a ball caster designed by [sliptonic](http://www.thingiverse.com/thing:13782) - the STL is set up for a 16mm ball bearing, but you can make one for other sizes with the included OpenSCAD file.
 
+**NEW** There is a completely 3D printable version available at [Thingiverse](http://www.thingiverse.com/thing:357369) now.
+
+[<img src="https://github.com/makenai/sumobot-jr/raw/master/assets/3dprintsumo.png">](http://www.thingiverse.com/thing:357369)
+
 ## What if I don't have a Laser Cutter / 3D Printer?!
 
 Neither do I! The best way to get some help creating the parts is to look up your local [Hackerspace](http://hackerspaces.org) and connect with them. I belong to a fantastic hackerspace in Las Vegas called [SYN Shop](http://synshop.org)!

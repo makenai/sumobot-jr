@@ -1,3 +1,8 @@
+/* Options */
+
+curved_shovel = 1;
+
+
 /* Parameters */
 
 material_thickness = 4;
@@ -103,10 +108,12 @@ module servo_hole() {
 }
 
 module arduino_holes() {
-	translate([0, 15.2]) screw_hole();
-	translate([0, 43.1]) screw_hole();
-	translate([50.8, 0]) screw_hole();
-	translate([52.1, 48.2]) screw_hole();
+	translate([-26.05,-24.1]) { 
+		translate([0, 15.2]) screw_hole();
+		translate([0, 43.1]) screw_hole();
+		translate([50.8, 0]) screw_hole();
+		translate([52.1, 48.2]) screw_hole();
+	}
 }
 
 module pinoccio_mount() {
@@ -237,10 +244,10 @@ module top() {
 			translate([sled_length-tab_length-tab_edge_distance,-material_thickness])
 				tab();
 		}
-		//translate([sled_width - 66.1, sled_height/2 - 48.2/2]) arduino_holes();
+		translate([sled_length/2,sled_width/2]) arduino_holes();
 	}
-	translate([sled_length/2,sled_width/2,material_thickness])
-		pinoccio_mount();
+	// translate([sled_length/2,sled_width/2,material_thickness])
+	//	pinoccio_mount();
 	}
 }
 
@@ -270,10 +277,12 @@ module shovel() {
 		translate([shovel_width/2 + sled_height/2 + material_thickness, shovel_height/2 - tab_length/2]) 
 			rotate([0,0,90]) tab_hole();
 	}
-	shovel_side();
-	translate([shovel_width,shovel_height])
-	rotate([0,0,180])
+	if (curved_shovel) {
 		shovel_side();
+		translate([shovel_width,shovel_height])
+		rotate([0,0,180])
+			shovel_side();
+		}
 	}
 }
 
@@ -336,10 +345,10 @@ module wheel() {
 
 //wheel();
 
-top();
+//top();
 
-//shovel();
+// shovel();
 
 //bottom();
 
-//side();
+side();
