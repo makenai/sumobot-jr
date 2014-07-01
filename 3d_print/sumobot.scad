@@ -1,18 +1,23 @@
-/* Options */
+/* Features */
 
 curved_shovel = 1;
+built_in_caster = 1;
 
 
 /* Parameters */
 
-material_thickness = 4;
+// For a laser cutter? For 3D printing, try 0.375
+//kerf = 0.08;
+kerf = 0.375;
+material_thickness = 4.75;
+
 battery_case_height = 16;
 servo_height = 21.5;
 servo_length = 42.5;
 sled_length = 80.5;
 sled_width = 63.5;
 tab_edge_distance = 5;
-tab_spacing = 0.75;
+tab_spacing = kerf * 2;
 tab_length = 10;
 ramp_angle = 80;
 shovel_width = 90;
@@ -22,7 +27,7 @@ shovel_side_height = 20;
 ziptie_height = 5;
 ziptie_width = 2.5;
 
-screw_diameter = 3;
+screw_diameter = 2.5;
 
 caster_screw_spacing = 25;
 caster_position = 12;
@@ -41,6 +46,10 @@ BallProtrude = .33;
 SERVO_HEAD_CLEAR = 0.2;
 FUTABA_3F_SPLINE = [
     [6, 4, 1.1, 2.5],
+    [25, 0.3, 0.7, 0.1]
+];
+FUTABA_3F_SPLINE_KERF = [
+    [6-kerf, 4, 1.1, 2.5],
     [25, 0.3, 0.7, 0.1]
 ];
 
@@ -187,7 +196,7 @@ module side() {
 }
 
 
-module bottom() {
+module bottom(built_in_caster=1) {
 	bottom_offset = (ramp_length + sled_length) - side_length;
 	translate([bottom_offset, 0])
 	linear_extrude(height=material_thickness)
@@ -205,8 +214,10 @@ module bottom() {
 		}
 
 		// Screw Holes
-		// translate([caster_position, sled_height/2 + caster_screw_spacing/2]) screw_hole();
-		// translate([caster_position, sled_height/2 - caster_screw_spacing/2]) screw_hole();
+		if (!built_in_caster) {
+			translate([caster_position, sled_width/2 + caster_screw_spacing/2]) screw_hole();
+			translate([caster_position, sled_width/2 - caster_screw_spacing/2]) screw_hole();
+		}
 
 		// Ziptie Holes
 		translate([side_length - servo_length - tab_length - tab_edge_distance - 
@@ -223,9 +234,11 @@ module bottom() {
 			ziptie_hole(); // Top Right
 	}
 	// Caster
-	rotate([0,0,90])
-	translate([sled_width/2, -caster_position, material_thickness])
-		caster();
+	if (built_in_caster) {
+		rotate([0,0,90])
+		translate([sled_width/2, -caster_position, material_thickness])
+			caster();
+	}
 
 }
 
@@ -267,7 +280,7 @@ module shovel_side() {
 		sloped_support(shovel_side_height);
 }
 
-module shovel() {
+module shovel(curved_shovel=curved_shovel) {
 	union() {
 	linear_extrude(height=material_thickness)
 	difference() {
@@ -324,7 +337,16 @@ module servo_head(params, clear = SERVO_HEAD_CLEAR) {
 	}
 }
 
-module wheel() {
+module wheel_screw_slot() {
+	hull() {
+		translate([0,0,-1])
+			cylinder(d=screw_diameter,h=material_thickness+2);
+		translate([0,8,-1])
+			cylinder(d=screw_diameter,h=material_thickness+2);
+	}
+}
+
+module wheel(built_in_hub=1) {
 	layer_height = material_thickness/3;
 	difference() {
 		union() {
@@ -332,23 +354,65 @@ module wheel() {
 				cylinder(r=wheel_radius-0.5,h=material_thickness);
 			translate([0,0,layer_height*2])
 				cylinder(r=wheel_radius,h=layer_height);
-			cylinder(r=5,h=4.5);
+			if (built_in_hub)
+				cylinder(r=5,h=4.5);
 		}
 		translate([0,0,-1])
 			cylinder(d=screw_diameter,h=material_thickness+2);
-		translate([0,0,1])
-			servo_head(FUTABA_3F_SPLINE);
+		if (built_in_hub) {
+			translate([0,0,1])
+				servo_head(FUTABA_3F_SPLINE);
+		} else {
+			servo_head(FUTABA_3F_SPLINE_KERF);
+			// screw hole
+			translate([0,7])
+				wheel_screw_slot();
+			translate([0,-15])
+				wheel_screw_slot();
 
+		}
 	}
 }
+
+
+module laser_sheet(spacing=2) {
+
+	// We want high resolution circles.
+	$fn = 50;
+
+	// Right Side
+	translate([ramp_length+spacing,0])
+		side();
+	translate([sled_length+spacing, sled_height+spacing]) mirror([1,0,0])	
+		side();
+	translate([spacing,-shovel_height - spacing])
+		shovel(curved_shovel=0);
+	translate([wheel_radius+spacing,-shovel_height-wheel_radius-spacing*2])
+		wheel(built_in_hub=0);
+
+
+	// Left Side
+	translate([0,-wheel_radius/2]) {
+		translate([-wheel_radius,sled_width+wheel_radius+material_thickness])
+			wheel(built_in_hub=0);
+		translate([-sled_length, 0]) 
+			top();
+		translate([-sled_length - ramp_length, -sled_width - material_thickness * 2 - spacing ]) 
+			bottom(built_in_caster=0);
+	}
+
+}
+
+//projection(cut=true)
+//	laser_sheet(2);
 
 
 //wheel();
 
 //top();
 
-// shovel();
+shovel();
 
 //bottom();
 
-side();
+// side();
