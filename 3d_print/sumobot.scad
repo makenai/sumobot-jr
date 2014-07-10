@@ -7,7 +7,7 @@ built_in_caster = 1;
 /* Parameters */
 
 // For a laser cutter? For 3D printing, try 0.375
-//kerf = 0.08;
+//kerf = 0.05;
 kerf = 0.375;
 material_thickness = 4.75;
 
@@ -20,14 +20,14 @@ tab_edge_distance = 5;
 tab_spacing = kerf * 2;
 tab_length = 10;
 ramp_angle = 80;
-shovel_width = 90;
+shovel_width = 100;
 shovel_height = 45;
 shovel_side_height = 20;
 
 ziptie_height = 5;
 ziptie_width = 2.5;
 
-screw_diameter = 2.5;
+screw_diameter = 2.25;
 
 caster_screw_spacing = 25;
 caster_position = 12;
@@ -49,7 +49,7 @@ FUTABA_3F_SPLINE = [
     [25, 0.3, 0.7, 0.1]
 ];
 FUTABA_3F_SPLINE_KERF = [
-    [6-kerf, 4, 1.1, 2.5],
+    [6-(kerf/2), 4, 1.1, 2.5],
     [25, 0.3, 0.7, 0.1]
 ];
 
@@ -285,9 +285,9 @@ module shovel(curved_shovel=curved_shovel) {
 	linear_extrude(height=material_thickness)
 	difference() {
 		square([shovel_width, shovel_height]);
-		translate([ shovel_width/2 - sled_height/2, shovel_height/2 - tab_length/2]) 
+		translate([ shovel_width/2 - sled_width/2, shovel_height/2 - tab_length/2]) 
 			rotate([0,0,90]) tab_hole();
-		translate([shovel_width/2 + sled_height/2 + material_thickness, shovel_height/2 - tab_length/2]) 
+		translate([shovel_width/2 + sled_width/2 + material_thickness, shovel_height/2 - tab_length/2]) 
 			rotate([0,0,90]) tab_hole();
 	}
 	if (curved_shovel) {
@@ -381,11 +381,11 @@ module laser_sheet(spacing=2) {
 	$fn = 50;
 
 	// Right Side
-	translate([ramp_length+spacing,0])
-		side();
 	translate([sled_length+spacing, sled_height+spacing]) mirror([1,0,0])	
 		side();
-	translate([spacing,-shovel_height - spacing])
+	translate([ramp_length+spacing,-shovel_height - spacing])
+		side();
+	translate([spacing-ramp_length,sled_height-shovel_height])
 		shovel(curved_shovel=0);
 	translate([wheel_radius+spacing,-shovel_height-wheel_radius-spacing*2])
 		wheel(built_in_hub=0);
@@ -395,7 +395,7 @@ module laser_sheet(spacing=2) {
 	translate([0,-wheel_radius/2]) {
 		translate([-wheel_radius,sled_width+wheel_radius+material_thickness])
 			wheel(built_in_hub=0);
-		translate([-sled_length, 0]) 
+		translate([-sled_length - ramp_length, 0]) 
 			top();
 		translate([-sled_length - ramp_length, -sled_width - material_thickness * 2 - spacing ]) 
 			bottom(built_in_caster=0);
