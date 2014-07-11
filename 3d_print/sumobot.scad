@@ -1,6 +1,6 @@
 /* Features */
 
-curved_shovel = 1;
+curved_shovel = 0;
 built_in_caster = 1;
 
 
