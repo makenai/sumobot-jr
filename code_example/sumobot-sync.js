@@ -100,6 +100,7 @@ board.on("ready", function() {
       robot.sendCmd("move", "forward", 0)
            .sendCmd("move", "backward", 1500)
            .sendCmd("move", "forward", 600)
+           .sendCmd("move", "stop", 1200)
            .done();
     }
 
