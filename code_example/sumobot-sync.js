@@ -90,7 +90,7 @@ board.on("ready", function() {
         robot.move.right();
 
       case 'space': 
-        console.log('moving backward...');
+        console.log('stopping...');
         robot.move.stop();
 
       case 'u': 
