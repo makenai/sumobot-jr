@@ -68,41 +68,42 @@ board.on("ready", function() {
     
     if ( !key ) return;
 
+    switch (key.name) {
+      case 'q':
+        console.log('quitting!');
+        process.exit();
+      
+      case 'up': 
+        console.log('moving forward...');
+        robot.move.forward();
 
-    if ( key.name == 'q' ) {
+      case 'down': 
+        console.log('moving backward...');
+        robot.move.backward();
 
-      console.log('quitting!');
-      process.exit();
+      case 'left': 
+        console.log('turning left...');
+        robot.move.left();
 
-    } else if ( key.name == 'up' ) {
+      case 'right': 
+        console.log('moving backward...');
+        robot.move.right();
 
-      robot.move.forward();
+      case 'space': 
+        console.log('moving backward...');
+        robot.move.stop();
 
-    } else if ( key.name == 'down' ) {
+      case 'u': 
+        console.log('custom choreography...');
 
-      robot.move.backward();
-
-    } else if ( key.name == 'left' ) {
-
-      robot.move.left();
-
-    } else if ( key.name == 'right' ) {
-
-      robot.move.right();
-
-    } else if ( key.name == 'space' ) {
-
-      robot.move.stop();
-
-    } else if ( key.name == 'u' ) {
-
-      // queue up the commands for our robot!
-      robot.sendCmd("move", "forward", 0)
-           .sendCmd("move", "backward", 1500)
-           .sendCmd("move", "forward", 600)
-           .sendCmd("move", "stop", 1200)
-           .done();
+        // queue up the commands for our robot!
+        robot.sendCmd("move", "forward", 0)
+             .sendCmd("move", "backward", 1500)
+             .sendCmd("move", "forward", 600)
+             .sendCmd("move", "stop", 1200)
+             .done();
     }
+  }
 
   });
 
