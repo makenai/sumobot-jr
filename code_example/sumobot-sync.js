@@ -55,8 +55,8 @@ board.on("ready", function() {
   };
   robot.move.stop = function() {
     console.log('stopping...');
-    left_wheel.stop();
-    right_wheel.stop();
+    robot.left_wheel.stop();
+    robot.right_wheel.stop();
   };
 
 
