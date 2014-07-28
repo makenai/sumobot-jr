@@ -35,7 +35,7 @@ If you don't have a hackerspace nearby, you can also use a mail order service li
 + 2 Zip ties - ?
 + 5 \#4 3/8" wood screws - ?
 + Thick rubber bands - ?
-+ 2 continuous servo motors like [Futaba S148](http://www.pololu.com/catalog/product/536) - $28
++ 2 continuous servo motors like [Futaba S148](http://www.pololu.com/catalog/product/536) or the ones from [SpringRC](http://www.pololu.com/product/1248) - $24-$28
 + Some wire or leads
 + 16mm ball bearing - ?
 
