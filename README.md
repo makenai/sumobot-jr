@@ -22,7 +22,7 @@ There is also a directory called 3d_print that contains an STL file for a ball c
 
 ## What if I don't have a Laser Cutter / 3D Printer?!
 
-Neither do I! The best way to get some help creating the parts is to look up your local [Hackerspace](http://hackerspaces.org) and connect with them. I belong to a fantastic hackerspace in Las Vegas called [SYN Shop](http://synshop.org)!
+Neither do I! The best way to get some help creating the parts is to look up your local [Hackerspace or Makerspace ](http://hackerspaces.org) and connect with them. I belong to a fantastic hackerspace in Las Vegas called [SYN Shop](http://synshop.org)!
 
 [<img src="https://github.com/makenai/sumobot-jr/raw/master/assets/synshop.png">](http://synshop.org)
 
