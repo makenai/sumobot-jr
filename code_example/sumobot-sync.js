@@ -95,13 +95,14 @@ board.on("ready", function() {
       break;
       case 'u': 
         console.log('custom choreography...');
-      break;
+
         // queue up the commands for our robot!
         robot.sendCmd("move", "forward", 0)
-             .sendCmd("move", "backward", 1500)
-             .sendCmd("move", "forward", 600)
-             .sendCmd("move", "stop", 1200)
+             .sendCmd("move", "backward", 300)
+             .sendCmd("move", "forward", 300)
+             .sendCmd("move", "stop", 300)
              .done();
+        break;
     }
 
   });
