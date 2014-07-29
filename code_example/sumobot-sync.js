@@ -72,30 +72,30 @@ board.on("ready", function() {
       case 'q':
         console.log('quitting!');
         process.exit();
-      
+        break;
       case 'up': 
         console.log('moving forward...');
         robot.move.forward();
-
+        break;
       case 'down': 
         console.log('moving backward...');
         robot.move.backward();
-
+        break;
       case 'left': 
         console.log('turning left...');
         robot.move.left();
-
+        break;
       case 'right': 
         console.log('moving backward...');
         robot.move.right();
-
+        break;
       case 'space': 
         console.log('stopping...');
         robot.move.stop();
-
+      break;
       case 'u': 
         console.log('custom choreography...');
-
+      break;
         // queue up the commands for our robot!
         robot.sendCmd("move", "forward", 0)
              .sendCmd("move", "backward", 1500)
@@ -103,7 +103,6 @@ board.on("ready", function() {
              .sendCmd("move", "stop", 1200)
              .done();
     }
-  }
 
   });
 
