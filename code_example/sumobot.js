@@ -4,7 +4,6 @@
 
 var five = require("johnny-five");
 var keypress = require('keypress');
-var promise = require('bluebird');
 
 keypress(process.stdin);
 
@@ -23,51 +22,8 @@ board.on("ready", function() {
   process.stdin.setEncoding('utf8'); 
   process.stdin.setRawMode(true); 
 
-  var okay = promise.resolve();
-
-  var beat = 508;
-
-//helper functions  
-  
-function stop() {
-
-      console.log('Stopping');
-      left_wheel.stop();
-      right_wheel.stop();
-}
-
-function turnleft() {
-
-      console.log('Left');
-      left_wheel.ccw();
-      right_wheel.ccw();  
-}
-
-function turnright() {
-
-      console.log('Right');
-      left_wheel.cw();
-      right_wheel.cw();
-}
-
-function forward() {
-
-      console.log('Forward');
-      left_wheel.ccw();
-      right_wheel.cw();
-}
-
-function back() {
-
-      console.log('Backward');
-      left_wheel.cw();
-      right_wheel.ccw(); 
-}
-
-
   process.stdin.on('keypress', function (ch, key) {
     
-
     if ( !key ) return;
 
 
@@ -76,9 +32,7 @@ function back() {
       console.log('Quitting');
       process.exit();
 
-    }
-
-    /* else if ( key.name == 'up' ) {
+    } else if ( key.name == 'up' ) {
 
       console.log('Forward');
       left_wheel.ccw();
@@ -102,33 +56,17 @@ function back() {
       console.log('Right');
       left_wheel.cw();
       right_wheel.cw();
-      */
 
-   if ( key.name == 'space' ) {
-    
-        for(var i = 0; i < 10; i++) {
-          if(i == 6){
-            okay = okay.delay(beat * 2);
-            for(var j=0; j < 16; j++){
-            okay = okay.then(forward);
-            okay = okay.delay(beat); 
-            okay = okay.then(back);
-            okay = okay.then(beat);
-      }
-        continue;
-  }
+    } else if ( key.name == 'space' ) {
 
-          okay = okay.then(turnleft);
-          okay = okay.delay(4 * beat);
-          okay = okay.then(turnright);
-          okay = okay.delay(4 * beat);
-          okay = okay.then(forward);
-          okay = okay.delay(4 * beat);
-          okay = okay.then(back);
-          okay = okay.delay(4 * beat);
-          okay = okay.then(stop);
-      }
+      console.log('Stopping');
+      left_wheel.stop();
+      right_wheel.stop();
+
     }
-  });
-});
 
+
+  });
+
+
+});
