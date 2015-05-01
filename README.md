@@ -12,11 +12,15 @@ If you want to jump right into it, you can watch this instructional video:
 
 [Customizing Sumobot Jr with Suziam and cats](http://www.youtube.com/watch?v=BB0vihv9ylM)
 
+[Microsoft's version for Build 2015 on Raspberry Pi + Windows 10](https://www.youtube.com/watch?v=aKCieb-Gf2g)
+
 The main part of the design is a cutting sheet in EPS file format that is designed to be used with a laser cutter. You can find it in the cutting_plans directory. If you don't have a laser cutter, you can use a CNC, tape your printout to balsa wood and go at it with an x-acto knife, or send it to a laser cutting service like [Ponoko](https://www.ponoko.com/) and get the sheet done for about $10.
 
 There is also a directory called 3d_print that contains an STL file for a ball caster designed by [sliptonic](http://www.thingiverse.com/thing:13782) - the STL is set up for a 16mm ball bearing, but you can make one for other sizes with the included OpenSCAD file.
 
-**NEW** There is a completely 3D printable version available at [Thingiverse](http://www.thingiverse.com/thing:357369) now.
+**NEW** Microsoft has created a tutorial and version of the bot kit for [Build 2015](http://www.buildwindows.com/). You can find their version of the cutting plan for Ponoko in this repository, and also check out their [tutorial using Raspberry Pi and Windows 10](http://microsoft.hackster.io/windowsiot/robot-kit).
+
+There is a completely 3D printable version available at [Thingiverse](http://www.thingiverse.com/thing:357369) now.
 
 [<img src="https://github.com/makenai/sumobot-jr/raw/master/assets/3dprintsumo.png">](http://www.thingiverse.com/thing:357369)
 
