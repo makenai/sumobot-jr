@@ -71,7 +71,7 @@ Made by
 
 <img src="https://github.com/makenai/sumobot-jr/raw/master/assets/amalgamation.png">
 
-Design by [@makenai](http://twitter.com/makenai) with feedback and ideas from [@suziam](http://twitter.com/suziam) aka (by their powers combined) Amalgamation of Cats.
+Design by [@makenai](http://twitter.com/makenai) with feedback and ideas from [@noopkat](http://twitter.com/noopkat) aka (by their powers combined) Amalgamation of Cats.
 
 
 
