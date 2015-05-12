@@ -14,6 +14,12 @@ If you want to jump right into it, you can watch this instructional video:
 
 [Microsoft's version for Build 2015 on Raspberry Pi + Windows 10](https://www.youtube.com/watch?v=aKCieb-Gf2g)
 
+[Katie K's No Solder Guide](http://katiek2.github.io/sumobot-nosolder/)
+
+[Frank Hunleth's Arduino Mini Shield](https://oshpark.com/shared_projects/TEsKZkdg)
+
+[Norfolk.JS's Shopping List](https://github.com/norfolkjs/general-info/wiki/Norfolk.js-SumoBot-Kits)
+
 The main part of the design is a cutting sheet in EPS file format that is designed to be used with a laser cutter. You can find it in the cutting_plans directory. If you don't have a laser cutter, you can use a CNC, tape your printout to balsa wood and go at it with an x-acto knife, or send it to a laser cutting service like [Ponoko](https://www.ponoko.com/) and get the sheet done for about $10.
 
 There is also a directory called 3d_print that contains an STL file for a ball caster designed by [sliptonic](http://www.thingiverse.com/thing:13782) - the STL is set up for a 16mm ball bearing, but you can make one for other sizes with the included OpenSCAD file.
@@ -72,6 +78,3 @@ Made by
 <img src="https://github.com/makenai/sumobot-jr/raw/master/assets/amalgamation.png">
 
 Design by [@makenai](http://twitter.com/makenai) with feedback and ideas from [@noopkat](http://twitter.com/noopkat) aka (by their powers combined) Amalgamation of Cats.
-
-
-
