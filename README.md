@@ -12,6 +12,8 @@ If you want to jump right into it, you can watch this instructional video:
 
 [Customizing Sumobot Jr with Suziam and cats](http://www.youtube.com/watch?v=BB0vihv9ylM)
 
+[IKEA-style Assembly Instruction Card](http://makenai.github.io/sumobot-jr/sumobot-instructions.pdf)
+
 [Microsoft's version for Build 2015 on Raspberry Pi + Windows 10](https://www.youtube.com/watch?v=aKCieb-Gf2g)
 
 [Katie K's No Solder Guide](http://katiek2.github.io/sumobot-nosolder/)
