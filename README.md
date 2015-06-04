@@ -6,7 +6,11 @@ Sumobot Jr. is an open source sumobot design made for [Nodebots Day](http://node
 
 ## How?
 
-If you want to jump right into it, you can watch this instructional video:
+If you're planning on laser cutting the bots, you should use the OpenSCAD source file to generate a cutting plan for your specific type of laser cutter and material thickness. There's a wiki article for that!
+
+[Laser Cutting with the OpenSCAD file](https://github.com/makenai/sumobot-jr/wiki/Working-with-the-OpenSCAD-file)
+
+If you want to jump right into it, you can watch this instructional video, but note that you may not want to clip the wires if you plan to reuse the servos for something else:
 
 [Sumobot Jr Assembly video for Nodebots Day 7/27](http://www.youtube.com/watch?v=0Q3hrKUwxDM)
 
