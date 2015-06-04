@@ -21,7 +21,7 @@
 
   // For 3D printing, we can include a ball caster on the bottom
   built_in_caster = 0;
-  
+
   // For 3D printing, we can have a built in wheel hub
   built_in_hub = 1;
 
@@ -33,7 +33,7 @@
   // Kerf is the amount of space removed by a cutting tool. I use it
   // here to describe how much space to leave between tabs and space.
   // For laser cutters, I use 0.05, for 3D printers I use 0.375
-  kerf = 0.375;
+  kerf = 0.05;
 
   // How thick is the material? This also is the tab height.
   material_thickness = 4.75;
