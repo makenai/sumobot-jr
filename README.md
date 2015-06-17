@@ -24,7 +24,7 @@ If you want to jump right into it, you can watch this instructional video, but n
 
 [Frank Hunleth's Arduino Mini Shield](https://oshpark.com/shared_projects/TEsKZkdg)
 
-[Norfolk.JS's Shopping List](https://github.com/norfolkjs/general-info/wiki/Norfolk.js-SumoBot-Kits)
+[Norfolk.js's Shopping List](https://github.com/norfolkjs/general-info/wiki/Norfolk.js-SumoBot-Kits)
 
 The main part of the design is a cutting sheet in EPS file format that is designed to be used with a laser cutter. You can find it in the cutting_plans directory. If you don't have a laser cutter, you can use a CNC, tape your printout to balsa wood and go at it with an x-acto knife, or send it to a laser cutting service like [Ponoko](https://www.ponoko.com/) and get the sheet done for about $10.
 
@@ -57,15 +57,20 @@ If you don't have a hackerspace nearby, you can also use a mail order service li
 
 ## No-solder Wiring Diagram (thanks @katiek2)
 
-![https://github.com/KatieK2/sumobot-nosolder/blob/gh-pages/sumobot.png]
+<img src=https://github.com/KatieK2/sumobot-nosolder/blob/gh-pages/sumobot.png width=500 />
 
 That's about it! Connect the red and black leads on the servos together, then connect them to the + and - terminals on the battery holder respectively. Then connect the black leads and - terminal to the ground of the Arduino. Finally, the white leads of each motor go to pins 9 and 10 (or whatever you like) on the Arduino - you're done!
 
 ## Sample Code
 
-To run the sample code for the Sumobot Jr., you will first need to install [Node.js](http://nodejs.org/). If you are using Windows, you will also want to install [Git for Windows](https://git-scm.com/download/win).
+To run the sample code for the Sumobot Jr., you will first need to install [Node.js](http://nodejs.org/) and [git](https://git-scm.com).
 
-Open a terminal application and navigate to the code folder:
+Open a terminal application and clone this repository:
+```
+git clone https://github.com/makenai/sumobot-jr/
+```
+
+Navigate to the code folder:
 ```
 cd code_example
 ```
