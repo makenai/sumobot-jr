@@ -1,0 +1,15 @@
+env:
+  node: true
+  browser: true
+
+ecmaFeatures:
+  jsx: true
+
+rules:
+  camelcase: 2
+  eol-last: 2
+  quotes: [2, "single", "avoid-escape"]
+  no-mixed-spaces-and-tabs: 2
+  no-trailing-spaces: 2
+  no-underscore-dangle: 0
+  no-unused-vars: [1, { "args": "none" }]
