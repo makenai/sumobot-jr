@@ -4,7 +4,7 @@ Sumobot Jr. is an open source sumobot design made for [Nodebots Day](http://node
 
 <img src="https://github.com/makenai/sumobot-jr/raw/master/assets/sumobotjr.png">
 
-## How?
+## How ?
 
 If you're planning on laser cutting the bots, you should use the OpenSCAD source file to generate a cutting plan for your specific type of laser cutter and material thickness. There's a wiki article for that!
 
@@ -46,8 +46,8 @@ If you don't have a hackerspace nearby, you can also use a mail order service li
 
 ## Other Parts Needed
 
-+ Arduino - $25
-+ [4xAA battery holder](http://www.pololu.com/catalog/product/1153) - $2
++ [Arduino](https://www.pololu.com/product/2191) - ~$25
++ [4xAA battery holder](http://www.amazon.com/gp/product/B007Q2NR1O/ref=oh_aui_search_detailpage?ie=UTF8&amp;psc=1) - $2
 + 2 Zip ties - ?
 + 5 \#4 3/8" wood screws - ?
 + Thick rubber bands - ?
@@ -55,7 +55,33 @@ If you don't have a hackerspace nearby, you can also use a mail order service li
 + Some wire or leads
 + 16mm ball bearing - ?
 
-That's about it! Connect the red and black leads on the servos together, then connect them to the + and - terminals on the battery holder respectively. Then connect the black leads and - terminal to the ground of the Arduino. Finally, the white leads of each motor go to pins 9 and 10 (or whatever you lke) on the Arduino - you're done!
+## No-solder Wiring Diagram (thanks @katiek2)
+
+![https://github.com/KatieK2/sumobot-nosolder/blob/gh-pages/sumobot.png]
+
+That's about it! Connect the red and black leads on the servos together, then connect them to the + and - terminals on the battery holder respectively. Then connect the black leads and - terminal to the ground of the Arduino. Finally, the white leads of each motor go to pins 9 and 10 (or whatever you like) on the Arduino - you're done!
+
+## Sample Code
+
+To run the sample code for the Sumobot Jr., you will first need to install [Node.js](http://nodejs.org/). If you are using Windows, you will also want to install [Git for Windows](https://git-scm.com/download/win).
+
+Open a terminal application and navigate to the code folder:
+```
+cd code_example
+```
+
+Install code dependencies:
+
+```
+npm i
+```
+
+Run the code:
+
+```
+node sumobot.js
+
+```
 
 ## License
 
