@@ -1,134 +1,103 @@
-// =======================
-// Sumobot Jr demo program
-// =======================
+// ===================================
+// Sumobot Jr "Thriller" dance program
+// ===================================
 
-var five = require("johnny-five");
+'use strict';
+
+var five = require('johnny-five');
 var keypress = require('keypress');
 var promise = require('bluebird');
-
-keypress(process.stdin);
-
 var board = new five.Board();
 
-board.on("ready", function() {
 
-  console.log("Welcome to Sumobot Jr!")
-  console.log("Control the bot with the arrow keys, and SPACE to stop.")
+board.on('ready', function() {
 
-  var left_wheel  = new five.Servo({ pin:  9, type: 'continuous' }).stop();
-  var right_wheel = new five.Servo({ pin: 10, type: 'continuous'  }).stop();
+  var leftWheel = new five.Servo({ pin: 9, type: 'continuous' }).stop();
+  var rightWheel = new five.Servo({ pin: 10, type: 'continuous' }).stop();
 
 
-  process.stdin.resume(); 
-  process.stdin.setEncoding('utf8'); 
-  process.stdin.setRawMode(true); 
+  keypress(process.stdin);
+  process.stdin.resume();
+  process.stdin.setEncoding('utf8');
+  process.stdin.setRawMode(true);
 
   var okay = promise.resolve();
 
   var beat = 508;
 
-//helper functions  
-  
 function stop() {
 
-      console.log('Stopping');
-      left_wheel.stop();
-      right_wheel.stop();
+  console.log('Stopping');
+  leftWheel.stop();
+  rightWheel.stop();
 }
 
 function turnleft() {
 
-      console.log('Left');
-      left_wheel.ccw();
-      right_wheel.ccw();  
+  console.log('Left');
+  leftWheel.ccw();
+  rightWheel.ccw();
 }
 
 function turnright() {
 
-      console.log('Right');
-      left_wheel.cw();
-      right_wheel.cw();
+  console.log('Right');
+  leftWheel.cw();
+  rightWheel.cw();
 }
 
 function forward() {
 
-      console.log('Forward');
-      left_wheel.ccw();
-      right_wheel.cw();
+  console.log('Forward');
+  leftWheel.ccw();
+  rightWheel.cw();
 }
 
 function back() {
 
-      console.log('Backward');
-      left_wheel.cw();
-      right_wheel.ccw(); 
+  console.log('Backward');
+  leftWheel.cw();
+  rightWheel.ccw();
 }
 
 
   process.stdin.on('keypress', function (ch, key) {
-    
-
-    if ( !key ) return;
 
 
-    if ( key.name == 'q' ) {
+    if ( !key ) { return; }
+
+
+    if ( key.name === 'q' ) {
 
       console.log('Quitting');
       process.exit();
 
     }
 
-    /* else if ( key.name == 'up' ) {
+    if ( key.name === 'space' ) {
 
-      console.log('Forward');
-      left_wheel.ccw();
-      right_wheel.cw();
-
-    } else if ( key.name == 'down' ) {
-
-      console.log('Backward');
-      left_wheel.cw();
-      right_wheel.ccw();      
-
-    } else if ( key.name == 'left' ) {
-
-      console.log('Left');
-      left_wheel.ccw();
-      right_wheel.ccw();      
-
-
-    } else if ( key.name == 'right' ) {
-
-      console.log('Right');
-      left_wheel.cw();
-      right_wheel.cw();
-      */
-
-   if ( key.name == 'space' ) {
-    
-        for(var i = 0; i < 10; i++) {
-          if(i == 6){
-            okay = okay.delay(beat * 2);
-            for(var j=0; j < 16; j++){
+      for(var i = 0; i < 10; i++) {
+        if(i === 6){
+          okay = okay.delay(beat * 2);
+          for(var j = 0; j < 16; j++){
             okay = okay.then(forward);
-            okay = okay.delay(beat); 
+            okay = okay.delay(beat);
             okay = okay.then(back);
             okay = okay.then(beat);
-      }
-        continue;
-  }
+          }
+          continue;
+        }
 
-          okay = okay.then(turnleft);
-          okay = okay.delay(4 * beat);
-          okay = okay.then(turnright);
-          okay = okay.delay(4 * beat);
-          okay = okay.then(forward);
-          okay = okay.delay(4 * beat);
-          okay = okay.then(back);
-          okay = okay.delay(4 * beat);
-          okay = okay.then(stop);
+        okay = okay.then(turnleft);
+        okay = okay.delay(4 * beat);
+        okay = okay.then(turnright);
+        okay = okay.delay(4 * beat);
+        okay = okay.then(forward);
+        okay = okay.delay(4 * beat);
+        okay = okay.then(back);
+        okay = okay.delay(4 * beat);
+        okay = okay.then(stop);
       }
     }
   });
 });
-

@@ -1,18 +1,21 @@
 {
   "author": "David Resseguie <david@resseguie.com>",
   "name": "sumobot-jr",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "SumoBot Jr Examples",
   "homepage": "",
   "dependencies": {
-    "bluebird": "^2.9.14",
+    "bluebird": "latest",
     "johnny-five": "latest",
     "keypress": "latest",
-    "spark-io": "latest"
+    "spark-io": "latest",
+    "temporal": "latest"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "latest"
+  },
   "repository": "",
   "engines": {
-    "node": "0.10.10"
+    "node": "0.10.31"
   }
 }
