@@ -67,7 +67,7 @@ To run the sample code for the Sumobot Jr., you will first need to install [Node
 
 Open a terminal application and clone this repository:
 ```
-git clone https://github.com/makenai/sumobot-jr/
+git clone https://github.com/makenai/sumobot-jr
 ```
 
 Navigate to the code folder:
@@ -85,7 +85,6 @@ Run the code:
 
 ```
 node sumobot.js
-
 ```
 
 ## License
