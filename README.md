@@ -4,7 +4,7 @@ Sumobot Jr. is an open source sumobot design made for [Nodebots Day](http://node
 
 <img src="https://github.com/makenai/sumobot-jr/raw/master/assets/sumobotjr.png">
 
-## How?
+## How ?
 
 If you're planning on laser cutting the bots, you should use the OpenSCAD source file to generate a cutting plan for your specific type of laser cutter and material thickness. There's a wiki article for that!
 
@@ -24,7 +24,7 @@ If you want to jump right into it, you can watch this instructional video, but n
 
 [Frank Hunleth's Arduino Mini Shield](https://oshpark.com/shared_projects/TEsKZkdg)
 
-[Norfolk.JS's Shopping List](https://github.com/norfolkjs/general-info/wiki/Norfolk.js-SumoBot-Kits)
+[Norfolk.js's Shopping List](https://github.com/norfolkjs/general-info/wiki/Norfolk.js-SumoBot-Kits)
 
 The main part of the design is a cutting sheet in EPS file format that is designed to be used with a laser cutter. You can find it in the cutting_plans directory. If you don't have a laser cutter, you can use a CNC, tape your printout to balsa wood and go at it with an x-acto knife, or send it to a laser cutting service like [Ponoko](https://www.ponoko.com/) and get the sheet done for about $10.
 
@@ -46,8 +46,8 @@ If you don't have a hackerspace nearby, you can also use a mail order service li
 
 ## Other Parts Needed
 
-+ Arduino - $25
-+ [4xAA battery holder](http://www.pololu.com/catalog/product/1153) - $2
++ [Arduino](https://www.pololu.com/product/2191) - ~$25
++ [4xAA battery holder](http://www.amazon.com/gp/product/B007Q2NR1O/ref=oh_aui_search_detailpage?ie=UTF8&amp;psc=1) - $2
 + 2 Zip ties - ?
 + 5 \#4 3/8" wood screws - ?
 + Thick rubber bands - ?
@@ -55,7 +55,37 @@ If you don't have a hackerspace nearby, you can also use a mail order service li
 + Some wire or leads
 + 16mm ball bearing - ?
 
-That's about it! Connect the red and black leads on the servos together, then connect them to the + and - terminals on the battery holder respectively. Then connect the black leads and - terminal to the ground of the Arduino. Finally, the white leads of each motor go to pins 9 and 10 (or whatever you lke) on the Arduino - you're done!
+## No-solder Wiring Diagram (thanks @katiek2)
+
+<img src=https://github.com/KatieK2/sumobot-nosolder/blob/gh-pages/sumobot.png width=500 />
+
+That's about it! Connect the red and black leads on the servos together, then connect them to the + and - terminals on the battery holder respectively. Then connect the black leads and - terminal to the ground of the Arduino. Finally, the white leads of each motor go to pins 9 and 10 (or whatever you like) on the Arduino - you're done!
+
+## Sample Code
+
+To run the sample code for the Sumobot Jr., you will first need to install [Node.js](http://nodejs.org/) and [git](https://git-scm.com).
+
+Open a terminal application and clone this repository:
+```
+git clone https://github.com/makenai/sumobot-jr
+```
+
+Navigate to the code folder:
+```
+cd code_example
+```
+
+Install code dependencies:
+
+```
+npm i
+```
+
+Run the code:
+
+```
+node sumobot.js
+```
 
 ## License
 
