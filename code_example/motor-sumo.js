@@ -17,7 +17,7 @@ board.on('ready', function() {
     motors: motors
   });
 
-  console.log('Welcome to the Pee Wee Runt Rover!');
+  console.log('Welcome to the Motorized SumoBot!');
   console.log('Control the bot with the arrow keys, and SPACE to stop.');
 
   function forward() {
