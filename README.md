@@ -26,6 +26,8 @@ If you want to jump right into it, you can watch this instructional video, but n
 
 [Norfolk.js's Shopping List](https://github.com/norfolkjs/general-info/wiki/Norfolk.js-SumoBot-Kits)
 
+[Sidepart adaptors for MG-6-48 DC-Motors from ghtomcat](https://github.com/ghtomcat/sumobot)
+
 The main part of the design is a cutting sheet in EPS file format that is designed to be used with a laser cutter. You can find it in the cutting_plans directory. If you don't have a laser cutter, you can use a CNC, tape your printout to balsa wood and go at it with an x-acto knife, or send it to a laser cutting service like [Ponoko](https://www.ponoko.com/) and get the sheet done for about $10.
 
 There is also a directory called 3d_print that contains an STL file for a ball caster designed by [sliptonic](http://www.thingiverse.com/thing:13782) - the STL is set up for a 16mm ball bearing, but you can make one for other sizes with the included OpenSCAD file.
