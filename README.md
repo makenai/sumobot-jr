@@ -24,7 +24,7 @@ If you want to jump right into it, you can watch this instructional video, but n
 
 [Frank Hunleth's Arduino Mini Shield](https://oshpark.com/shared_projects/TEsKZkdg)
 
-[Norfolk.js's Shopping List](https://github.com/norfolkjs/general-info/wiki/Norfolk.js-SumoBot-Kits)
+[Norfolk.js's Motorized Sumo Shopping List](https://github.com/norfolkjs/general-info/wiki/Norfolk.js-SumoBot-Kits---2016)
 
 [Sidepart adaptors for MG-6-48 DC-Motors from ghtomcat](https://github.com/ghtomcat/sumobot)
 
