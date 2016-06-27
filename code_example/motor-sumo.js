@@ -13,8 +13,15 @@ board.on('ready', function() {
     configs.M2
   ]);
 
+  // If you want to add servos to your motor shield
+  // You can also use continuous servos: new five.Servo.Continuous(10)
+  var servo1 = new five.Servo(10);
+  var servo2 = new five.Servo(9);
+
   this.repl.inject({
-    motors: motors
+    motors: motors,
+    servo1: servo1,
+    servo2: servo2
   });
 
   console.log('Welcome to the Motorized SumoBot!');
@@ -44,6 +51,18 @@ board.on('ready', function() {
 
   function stop() {
     motors.stop();
+
+    // Optionally, stop servos from sweeping
+    servo1.stop();
+    servo2.stop();
+  }
+
+  function sweep() {
+    console.log('Sweep the leg!!');
+
+    // Sweep from 0-180 (repeat)
+    servo1.sweep();
+    servo2.sweep();
   }
 
   keypress(process.stdin);
@@ -79,6 +98,10 @@ board.on('ready', function() {
     } else if ( key.name === 'space' ) {
 
       stop();
+
+    } else if ( key.name === 's' ) {
+
+      sweep();
 
     }
   });
